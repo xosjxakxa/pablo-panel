@@ -56,9 +56,7 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-
     font-family:Inter,Arial,sans-serif;
-
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -85,7 +83,6 @@ body{
         var(--bg);
 
     color:var(--text);
-
     overflow-x:hidden;
 }
 
@@ -94,7 +91,6 @@ body:before{
     content:"";
 
     position:fixed;
-
     inset:0;
 
     pointer-events:none;
@@ -149,7 +145,6 @@ button{
 .sidebar{
 
     width:245px;
-
     flex-shrink:0;
 
     background:
@@ -185,9 +180,7 @@ button{
 .brand{
 
     display:flex;
-
     align-items:center;
-
     gap:11px;
 
     padding:
@@ -209,7 +202,6 @@ button{
     border-radius:12px;
 
     display:block;
-
     flex-shrink:0;
 
     border:
@@ -227,12 +219,10 @@ button{
 .brand-name{
 
     font-size:20px;
-
     font-weight:900;
-
     letter-spacing:2px;
 
-    color:#ffffff;
+    color:#fff;
 
     text-shadow:
 
@@ -248,7 +238,6 @@ button{
     color:#00bfff;
 
     font-size:9px;
-
     margin-top:4px;
 
     letter-spacing:1.5px;
@@ -264,7 +253,6 @@ button{
     color:#405d78;
 
     font-size:9px;
-
     font-weight:800;
 
     letter-spacing:1.5px;
@@ -276,7 +264,6 @@ button{
 .nav-item{
 
     display:flex;
-
     align-items:center;
 
     gap:11px;
@@ -284,7 +271,7 @@ button{
     width:100%;
 
     padding:
-        12px 12px;
+        12px;
 
     margin-bottom:5px;
 
@@ -295,7 +282,6 @@ button{
     text-decoration:none;
 
     font-size:12px;
-
     font-weight:600;
 
     border:
@@ -323,15 +309,34 @@ button{
         inset 3px 0 0 var(--blue);
 }
 
+
+/* ساده و ادمینی */
+
 .nav-icon{
 
     width:22px;
+    height:22px;
 
-    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    font-size:13px;
+    border-radius:7px;
 
-    color:#5d7892;
+    background:
+        rgba(0,157,255,.08);
+
+    border:
+        1px solid rgba(0,157,255,.12);
+
+    color:#69cfff;
+
+    font-size:7px;
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    flex-shrink:0;
 }
 
 .sidebar-bottom{
@@ -362,7 +367,6 @@ button{
 .developer-box small{
 
     color:#55718c;
-
     font-size:8px;
 }
 
@@ -432,13 +436,13 @@ button{
 
     background:var(--panel);
 
-    font-size:18px;
+    font-size:10px;
+    font-weight:800;
 }
 
 .page-title h1{
 
     font-size:24px;
-
     font-weight:900;
 
     letter-spacing:-.5px;
@@ -456,9 +460,7 @@ button{
 .profile{
 
     display:flex;
-
     align-items:center;
-
     gap:10px;
 }
 
@@ -469,14 +471,12 @@ button{
 .profile-info strong{
 
     display:block;
-
     font-size:11px;
 }
 
 .profile-info span{
 
     color:#00d99a;
-
     font-size:9px;
 }
 
@@ -502,7 +502,6 @@ button{
     height:100%;
 
     object-fit:cover;
-
     display:block;
 }
 
@@ -541,7 +540,6 @@ button{
     top:0;
 
     left:15%;
-
     right:15%;
 
     height:1px;
@@ -577,7 +575,6 @@ button{
 .stat{
 
     padding:18px;
-
     min-width:0;
 }
 
@@ -597,7 +594,6 @@ button{
     color:#7690a9;
 
     font-size:10px;
-
     font-weight:600;
 }
 
@@ -609,7 +605,6 @@ button{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     border-radius:10px;
@@ -622,15 +617,15 @@ button{
 
     color:#00c8ff;
 
-    font-size:9px;
+    font-size:7px;
+    font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.5px;
 }
 
 .stat-value{
 
     font-size:25px;
-
     font-weight:900;
 
     margin-top:12px;
@@ -682,14 +677,12 @@ button{
 .section-title h2{
 
     font-size:13px;
-
     font-weight:800;
 }
 
 .section-title span{
 
     color:#506d88;
-
     font-size:9px;
 }
 
@@ -735,7 +728,6 @@ button{
 .status-text strong{
 
     display:block;
-
     font-size:11px;
 }
 
@@ -813,7 +805,6 @@ button{
 .bar{
 
     flex:1;
-
     min-width:5px;
 
     height:var(--h);
@@ -848,9 +839,7 @@ button{
 .user-list{
 
     display:flex;
-
     flex-direction:column;
-
     gap:8px;
 }
 
@@ -910,7 +899,6 @@ button{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:
@@ -918,11 +906,10 @@ button{
 
     color:#00c8ff;
 
-    font-size:9px;
-
+    font-size:7px;
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.5px;
 }
 
 .user-name strong{
@@ -973,7 +960,6 @@ button{
     border-radius:7px;
 
     font-size:8px;
-
     font-weight:800;
 }
 
@@ -1023,7 +1009,6 @@ button{
         8px 10px;
 
     font-size:9px;
-
     font-weight:800;
 
     color:#fff;
@@ -1100,7 +1085,6 @@ button{
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     padding:15px;
@@ -1145,7 +1129,6 @@ button{
     display:flex;
 
     justify-content:space-between;
-
     align-items:center;
 
     margin-bottom:18px;
@@ -1157,7 +1140,6 @@ button{
 }
 
 .modal-head h3{
-
     font-size:14px;
 }
 
@@ -1182,7 +1164,6 @@ button{
 ========================================================= */
 
 .form-group{
-
     margin-bottom:13px;
 }
 
@@ -1259,7 +1240,6 @@ button{
 .config-title{
 
     font-size:10px;
-
     font-weight:800;
 }
 
@@ -1275,7 +1255,6 @@ button{
 .config-actions{
 
     display:flex;
-
     gap:5px;
 
     flex-shrink:0;
@@ -1310,7 +1289,6 @@ button{
 .sub-row{
 
     display:flex;
-
     gap:5px;
 }
 
@@ -1328,7 +1306,6 @@ button{
     position:fixed;
 
     left:50%;
-
     bottom:20px;
 
     transform:
@@ -1347,7 +1324,6 @@ button{
         11px 18px;
 
     font-size:10px;
-
     font-weight:700;
 
     box-shadow:
@@ -1400,27 +1376,22 @@ button{
     }
 
     .mobile-menu{
-
         display:block;
     }
 
     .topbar{
-
         margin-bottom:15px;
     }
 
     .page-title h1{
-
         font-size:20px;
     }
 
     .page-title p{
-
         font-size:9px;
     }
 
     .profile-info{
-
         display:none;
     }
 
@@ -1433,17 +1404,14 @@ button{
     }
 
     .stat{
-
         padding:14px;
     }
 
     .stat-value{
-
         font-size:21px;
     }
 
     .grid{
-
         grid-template-columns:1fr;
     }
 
@@ -1455,12 +1423,10 @@ button{
     }
 
     .actions{
-
         justify-content:stretch;
     }
 
     .actions .btn{
-
         flex:1;
     }
 }
@@ -1469,12 +1435,10 @@ button{
 @media(max-width:480px){
 
     .main{
-
         padding:10px;
     }
 
     .brand{
-
         padding-bottom:20px;
     }
 
@@ -1491,34 +1455,28 @@ button{
     }
 
     .stat-label{
-
         font-size:8px;
     }
 
     .stat-value{
-
         font-size:18px;
     }
 
     .server-info{
-
         grid-template-columns:1fr;
     }
 
     .server-card,
     .traffic-card,
     .users-card{
-
         padding:14px;
     }
 
     .section-title{
-
         margin-bottom:13px;
     }
 
     .user-name strong{
-
         font-size:10px;
     }
 
@@ -1545,12 +1503,10 @@ button{
     }
 
     .config-actions{
-
         width:100%;
     }
 
     .config-actions .btn{
-
         flex:1;
     }
 }
@@ -1607,7 +1563,7 @@ button{
         >
 
             <span class="nav-icon">
-                PP
+                DB
             </span>
 
             Dashboard
@@ -1811,9 +1767,7 @@ button{
 
 
 
-    <!-- =====================================================
-         STATS
-    ====================================================== -->
+    <!-- STATS -->
 
     <section class="stats">
 
@@ -1827,7 +1781,7 @@ button{
                 </span>
 
                 <span class="stat-icon">
-                    USERS
+                    USR
                 </span>
 
             </div>
@@ -1853,7 +1807,7 @@ button{
                 </span>
 
                 <span class="stat-icon">
-                    LIVE
+                    ON
                 </span>
 
             </div>
@@ -1879,7 +1833,7 @@ button{
                 </span>
 
                 <span class="stat-icon">
-                    DATA
+                    NET
                 </span>
 
             </div>
@@ -1916,7 +1870,7 @@ button{
                 </span>
 
                 <span class="stat-icon">
-                    USED
+                    USE
                 </span>
 
             </div>
@@ -1947,9 +1901,7 @@ button{
 
 
 
-    <!-- =====================================================
-         SERVER + TRAFFIC
-    ====================================================== -->
+    <!-- SERVER + TRAFFIC -->
 
     <section class="grid">
 
@@ -2056,75 +2008,20 @@ button{
 
             <div class="chart">
 
-                <div
-                    class="bar"
-                    style="--h:32%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:45%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:39%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:64%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:51%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:77%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:62%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:88%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:71%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:94%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:78%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:84%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:69%;"
-                ></div>
-
-                <div
-                    class="bar"
-                    style="--h:90%;"
-                ></div>
+                <div class="bar" style="--h:32%;"></div>
+                <div class="bar" style="--h:45%;"></div>
+                <div class="bar" style="--h:39%;"></div>
+                <div class="bar" style="--h:64%;"></div>
+                <div class="bar" style="--h:51%;"></div>
+                <div class="bar" style="--h:77%;"></div>
+                <div class="bar" style="--h:62%;"></div>
+                <div class="bar" style="--h:88%;"></div>
+                <div class="bar" style="--h:71%;"></div>
+                <div class="bar" style="--h:94%;"></div>
+                <div class="bar" style="--h:78%;"></div>
+                <div class="bar" style="--h:84%;"></div>
+                <div class="bar" style="--h:69%;"></div>
+                <div class="bar" style="--h:90%;"></div>
 
             </div>
 
@@ -2135,9 +2032,7 @@ button{
 
 
 
-    <!-- =====================================================
-         USERS
-    ====================================================== -->
+    <!-- USERS -->
 
     <section
         class="card users-card"
@@ -2208,7 +2103,7 @@ button{
 
 
                     <div class="user-avatar">
-                        US
+                        USR
                     </div>
 
 
@@ -2381,18 +2276,14 @@ button{
 
 
 
-<!-- =========================================================
-     ADD USER MODAL
-========================================================= -->
+<!-- ADD USER MODAL -->
 
 <div
     class="overlay"
     id="addModal"
 >
 
-
     <div class="modal">
-
 
         <div class="modal-head">
 
@@ -2500,20 +2391,16 @@ button{
 
     </div>
 
-
 </div>
 
 
 
-<!-- =========================================================
-     CONFIG MODAL
-========================================================= -->
+<!-- CONFIG MODAL -->
 
 <div
     class="overlay"
     id="configModal"
 >
-
 
     <div class="modal">
 
@@ -2617,8 +2504,7 @@ button{
                     padding:9px;
                     border-radius:12px;
                 "
-            >
-            </div>
+            ></div>
 
 
             <div
@@ -2628,8 +2514,7 @@ button{
                     font-size:9px;
                     margin-top:7px;
                 "
-            >
-            </div>
+            ></div>
 
 
         </div>
@@ -2649,14 +2534,11 @@ button{
 
     </div>
 
-
 </div>
 
 
 
-<!-- =========================================================
-     TOAST
-========================================================= -->
+<!-- TOAST -->
 
 <div
     id="toast"
@@ -2674,7 +2556,6 @@ button{
 ========================================================= */
 
 let currentConfigs = [];
-
 let currentSub = '';
 
 
