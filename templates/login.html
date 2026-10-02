@@ -17,22 +17,29 @@
 }
 
 :root{
-    --bg:#030712;
-    --card:rgba(8,15,30,.82);
+    --bg:#02050b;
+    --card:rgba(5,11,23,.88);
     --cyan:#00eaff;
-    --blue:#2563ff;
-    --purple:#7c3cff;
-    --text:#f8fafc;
+    --blue:#2874ff;
+    --purple:#7b35ff;
+    --text:#f5f9ff;
     --muted:#71809b;
     --border:rgba(0,234,255,.18);
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
 }
 
 body{
     min-height:100vh;
     background:
-        radial-gradient(circle at 15% 20%,rgba(0,234,255,.12),transparent 28%),
-        radial-gradient(circle at 85% 80%,rgba(124,60,255,.16),transparent 30%),
-        #030712;
+        radial-gradient(circle at 12% 15%,rgba(0,234,255,.14),transparent 27%),
+        radial-gradient(circle at 88% 82%,rgba(123,53,255,.18),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(40,116,255,.10),transparent 35%),
+        var(--bg);
     color:var(--text);
     font-family:Arial,sans-serif;
     display:flex;
@@ -42,232 +49,488 @@ body{
     overflow:hidden;
 }
 
+/* Grid */
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background-image:
-        linear-gradient(rgba(0,234,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(0,234,255,.025) 1px,transparent 1px);
-    background-size:45px 45px;
+        linear-gradient(rgba(0,234,255,.028) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,234,255,.028) 1px,transparent 1px);
+    background-size:42px 42px;
     mask-image:linear-gradient(to bottom,black,transparent);
     pointer-events:none;
 }
 
-.login-wrap{
-    width:100%;
-    max-width:410px;
-    position:relative;
-}
-
-.glow{
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:#00eaff;
-    filter:blur(100px);
-    opacity:.13;
-    top:-70px;
-    left:-50px;
+/* Scan line */
+body::after{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    height:1px;
+    top:-10%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,234,255,.45),
+        transparent
+    );
+    box-shadow:0 0 15px rgba(0,234,255,.4);
+    animation:scan 7s linear infinite;
     pointer-events:none;
 }
 
-.card{
-    position:relative;
-    padding:35px 23px 22px;
-    border:1px solid var(--border);
-    border-radius:28px;
-    background:var(--card);
-    backdrop-filter:blur(25px);
-    box-shadow:
-        0 0 40px rgba(0,234,255,.07),
-        inset 0 0 30px rgba(0,234,255,.025);
+@keyframes scan{
+    0%{
+        top:-10%;
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    90%{
+        opacity:1;
+    }
+    100%{
+        top:110%;
+        opacity:0;
+    }
 }
 
+.login-wrap{
+    width:100%;
+    max-width:430px;
+    position:relative;
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.97);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* Ambient glows */
+.glow{
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:var(--cyan);
+    filter:blur(110px);
+    opacity:.12;
+    top:-100px;
+    left:-90px;
+    pointer-events:none;
+}
+
+.glow2{
+    position:absolute;
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    background:var(--purple);
+    filter:blur(100px);
+    opacity:.13;
+    bottom:-80px;
+    right:-70px;
+    pointer-events:none;
+}
+
+/* Main card */
+.card{
+    position:relative;
+    padding:34px 24px 22px;
+    border:1px solid rgba(0,234,255,.19);
+    border-radius:30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10,20,38,.94),
+            rgba(3,8,18,.94)
+        );
+    backdrop-filter:blur(30px);
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65),
+        0 0 45px rgba(0,234,255,.07),
+        inset 0 1px rgba(255,255,255,.07),
+        inset 0 0 35px rgba(0,234,255,.018);
+    overflow:hidden;
+}
+
+/* Top neon line */
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:12%;
+    width:76%;
+    height:2px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        var(--blue),
+        var(--purple),
+        transparent
+    );
+    box-shadow:
+        0 0 12px var(--cyan),
+        0 0 25px rgba(0,234,255,.35);
+}
+
+/* Inner shine */
+.card::after{
+    content:"";
+    position:absolute;
+    inset:1px;
+    border-radius:29px;
+    border:1px solid rgba(255,255,255,.025);
+    pointer-events:none;
+}
+
+/* Brand */
 .brand{
     text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    width:64px;
+    height:64px;
+    margin:0 auto 17px;
+    border-radius:19px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:900;
+    color:#fff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,234,255,.16),
+            rgba(40,116,255,.12),
+            rgba(123,53,255,.18)
+        );
+    border:1px solid rgba(0,234,255,.25);
+    box-shadow:
+        0 0 25px rgba(0,234,255,.12),
+        inset 0 0 20px rgba(0,234,255,.05);
+}
+
+.logo span{
+    background:linear-gradient(
+        135deg,
+        #fff,
+        var(--cyan),
+        #7d8cff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .brand h1{
-    font-size:31px;
+    font-size:32px;
     font-weight:900;
     letter-spacing:2px;
     background:linear-gradient(
         90deg,
         #ffffff,
         #00eaff,
-        #2563ff,
-        #8b7cff
+        #4285ff,
+        #9a6cff
     );
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     background-clip:text;
     color:transparent;
-    text-shadow:0 0 20px rgba(0,234,255,.18);
+    text-shadow:0 0 25px rgba(0,234,255,.15);
 }
 
 .brand p{
-    margin-top:8px;
-    color:var(--muted);
-    font-size:11px;
-    letter-spacing:.8px;
+    margin-top:9px;
+    color:#65748e;
+    font-size:9px;
+    letter-spacing:2px;
+    font-weight:700;
 }
 
+/* Status */
+.status{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin:20px auto 0;
+    width:max-content;
+    padding:7px 13px;
+    border-radius:30px;
+    background:rgba(0,234,255,.045);
+    border:1px solid rgba(0,234,255,.10);
+    color:#7e8ca5;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.status-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#00eaff;
+    box-shadow:0 0 10px #00eaff;
+    animation:pulse 1.7s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+    50%{
+        opacity:.45;
+        transform:scale(.7);
+    }
+}
+
+/* Form */
 .form{
-    margin-top:28px;
+    margin-top:27px;
+    position:relative;
+    z-index:2;
 }
 
 .group{
-    margin-bottom:16px;
+    margin-bottom:17px;
 }
 
 label{
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     margin-bottom:8px;
-    color:#aab8d0;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.5px;
+    color:#9aa9c1;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.label-line{
+    width:25px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        var(--cyan),
+        transparent
+    );
+    margin-left:7px;
+    flex:1;
+    opacity:.5;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+.input-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#42526d;
+    font-size:12px;
+    pointer-events:none;
+    transition:.25s;
 }
 
 input{
     width:100%;
-    height:50px;
-    padding:0 15px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(2,7,18,.85);
+    height:53px;
+    padding:0 15px 0 40px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,.075);
+    background:
+        linear-gradient(
+            120deg,
+            rgba(2,7,18,.95),
+            rgba(7,14,28,.82)
+        );
     color:white;
     outline:none;
     font-size:13px;
-    transition:.2s;
+    transition:.25s;
+    box-shadow:
+        inset 0 0 15px rgba(0,0,0,.18);
 }
 
 input:focus{
-    border-color:var(--cyan);
-    box-shadow:0 0 18px rgba(0,234,255,.13);
+    border-color:rgba(0,234,255,.55);
+    background:rgba(2,10,22,.98);
+    box-shadow:
+        0 0 0 3px rgba(0,234,255,.045),
+        0 0 22px rgba(0,234,255,.10),
+        inset 0 0 18px rgba(0,234,255,.025);
+}
+
+.input-wrap:focus-within .input-icon{
+    color:var(--cyan);
+    text-shadow:0 0 10px rgba(0,234,255,.5);
 }
 
 input::placeholder{
-    color:#3f4c63;
+    color:#3e4b62;
 }
 
+/* Button */
 .btn{
+    position:relative;
     width:100%;
-    height:52px;
+    height:54px;
     border:0;
-    border-radius:15px;
-    margin-top:6px;
+    border-radius:16px;
+    margin-top:4px;
+    overflow:hidden;
     color:white;
     font-weight:900;
-    font-size:13px;
-    letter-spacing:.4px;
+    font-size:12px;
+    letter-spacing:1px;
     cursor:pointer;
-    background:linear-gradient(
-        100deg,
-        #00bfff,
-        #2563ff,
-        #713cff
-    );
+    background:
+        linear-gradient(
+            100deg,
+            #00aeea,
+            #2563ff,
+            #713cff
+        );
     box-shadow:
-        0 0 20px rgba(0,191,255,.22),
-        inset 0 1px rgba(255,255,255,.18);
-    transition:.2s;
+        0 0 25px rgba(0,191,255,.18),
+        0 8px 25px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.25);
+    transition:.25s;
+}
+
+.btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.6s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+        0 0 32px rgba(0,191,255,.28),
+        0 12px 30px rgba(0,0,0,.35);
+}
+
+.btn:hover::before{
+    left:130%;
 }
 
 .btn:active{
-    transform:scale(.98);
+    transform:scale(.985);
 }
 
+/* Error */
 .error{
-    margin-bottom:17px;
-    padding:12px;
+    margin-top:19px;
+    margin-bottom:0;
+    padding:12px 13px;
     border-radius:13px;
     text-align:center;
-    color:#ff6b8a;
-    font-size:11px;
-    border:1px solid rgba(255,70,110,.25);
-    background:rgba(255,50,90,.08);
+    color:#ff7895;
+    font-size:10px;
+    font-weight:700;
+    border:1px solid rgba(255,70,110,.22);
+    background:rgba(255,50,90,.065);
+    box-shadow:0 0 20px rgba(255,50,90,.04);
 }
 
-/* ================================
-   Default Login Information
-================================ */
-
-.default-login{
-    margin-top:18px;
+/* Default login info */
+.default-info{
+    margin-top:17px;
     padding:12px 14px;
     border-radius:14px;
-    border:1px solid rgba(0,234,255,.16);
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,234,255,.055),
-            rgba(37,99,255,.035)
-        );
-    box-shadow:
-        0 0 18px rgba(0,234,255,.035),
-        inset 0 0 15px rgba(0,234,255,.018);
+    background:rgba(0,234,255,.025);
+    border:1px solid rgba(0,234,255,.075);
     text-align:center;
 }
 
-.default-login-title{
-    color:#71809b;
-    font-size:9px;
+.default-info .title{
+    color:#52627c;
+    font-size:8px;
+    letter-spacing:1.2px;
     font-weight:800;
-    letter-spacing:1px;
     margin-bottom:7px;
 }
 
-.default-login-text{
-    color:#9fb0ca;
-    font-size:11px;
-    line-height:1.8;
-}
-
-.default-login strong{
-    color:#00eaff;
-    font-weight:900;
-    text-shadow:0 0 10px rgba(0,234,255,.25);
-}
-
-.default-login .admin-box{
-    display:inline-block;
-    margin-top:3px;
-    padding:2px 8px;
-    border-radius:6px;
-    background:rgba(0,234,255,.07);
-    border:1px solid rgba(0,234,255,.12);
-    color:#00eaff;
-    font-family:monospace;
-    font-weight:900;
-}
-
-.footer{
-    margin-top:24px;
-    padding-top:17px;
-    border-top:1px solid rgba(255,255,255,.06);
-    text-align:center;
-    color:#4d5b72;
+.default-info .value{
+    color:#9eabc0;
     font-size:10px;
+}
+
+.default-info strong{
+    color:#00eaff;
+    font-weight:900;
+}
+
+/* Footer */
+.footer{
+    margin-top:22px;
+    padding-top:17px;
+    border-top:1px solid rgba(255,255,255,.055);
+    text-align:center;
+    color:#46546b;
+    font-size:9px;
+    letter-spacing:.5px;
 }
 
 .footer span{
     color:#00d9ff;
-    font-weight:800;
+    font-weight:900;
 }
 
+/* Mobile */
 @media(max-width:360px){
 
     .card{
-        padding:30px 18px 20px;
+        padding:29px 18px 20px;
+        border-radius:26px;
     }
 
     .brand h1{
         font-size:27px;
     }
 
+    .logo{
+        width:58px;
+        height:58px;
+    }
+
+    input{
+        height:50px;
+    }
+
+    .btn{
+        height:51px;
+    }
 }
 </style>
 </head>
@@ -277,16 +540,29 @@ input::placeholder{
 <div class="login-wrap">
 
     <div class="glow"></div>
+    <div class="glow2"></div>
 
     <div class="card">
 
         <div class="brand">
+
+            <div class="logo">
+                <span>PP</span>
+            </div>
+
             <h1>PabloPanel</h1>
+
             <p>NEON VLESS MANAGEMENT PANEL</p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+
         </div>
 
         {% if error %}
-        <div class="error" style="margin-top:20px;">
+        <div class="error">
             {{ error }}
         </div>
         {% endif %}
@@ -294,27 +570,49 @@ input::placeholder{
         <form method="POST" class="form">
 
             <div class="group">
-                <label>USERNAME</label>
 
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Enter username"
-                    autocomplete="off"
-                    required
-                >
+                <label>
+                    USERNAME
+                    <span class="label-line"></span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">◈</span>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter username"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
             </div>
 
             <div class="group">
-                <label>PASSWORD</label>
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter password"
-                    autocomplete="off"
-                    required
-                >
+                <label>
+                    PASSWORD
+                    <span class="label-line"></span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">◆</span>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter password"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
             </div>
 
             <button type="submit" class="btn">
@@ -323,23 +621,24 @@ input::placeholder{
 
         </form>
 
-        <!-- Default Login -->
-        <div class="default-login">
+        <div class="default-info">
 
-            <div class="default-login-title">
-                DEFAULT LOGIN
+            <div class="title">
+                DEFAULT LOGIN CREDENTIALS
             </div>
 
-            <div class="default-login-text">
-                نام کاربری و رمز عبور پیش‌فرض
-                <br>
-                <span class="admin-box">admin</span>
+            <div class="value">
+                Username:
+                <strong>admin</strong>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                Password:
+                <strong>admin</strong>
             </div>
 
         </div>
 
         <div class="footer">
-            DESIGNED & DEVELOPED BY
+            SECURED BY
             <span>PabloPanel</span>
         </div>
 
