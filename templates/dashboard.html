@@ -7,11 +7,9 @@
 <title>PabloPanel | Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
-
 :root{
     --bg:#020712;
     --bg2:#06101f;
@@ -19,7 +17,8 @@
     --panel2:#0a1b2e;
     --line:rgba(0,174,255,.18);
     --blue:#009dff;
-    --cyan:#00d9ff;
+    --cyan:#00eaff;
+    --purple:#7b35ff;
     --text:#f3f8ff;
     --muted:#7890a8;
     --green:#00e89a;
@@ -41,8 +40,9 @@ html,body{
 
 body{
     background:
-        radial-gradient(circle at 10% 10%,rgba(0,157,255,.12),transparent 28%),
-        radial-gradient(circle at 90% 90%,rgba(0,217,255,.08),transparent 30%),
+        radial-gradient(circle at 8% 8%,rgba(0,157,255,.14),transparent 27%),
+        radial-gradient(circle at 92% 85%,rgba(123,53,255,.12),transparent 30%),
+        radial-gradient(circle at 50% 50%,rgba(0,234,255,.025),transparent 40%),
         var(--bg);
     color:var(--text);
     overflow-x:hidden;
@@ -60,6 +60,33 @@ body:before{
     mask-image:linear-gradient(to bottom,black,transparent);
 }
 
+body:after{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    height:1px;
+    top:-10%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,234,255,.45),
+        rgba(123,53,255,.35),
+        transparent
+    );
+    box-shadow:0 0 15px rgba(0,234,255,.3);
+    animation:scan 9s linear infinite;
+    pointer-events:none;
+    z-index:9999;
+}
+
+@keyframes scan{
+    0%{top:-10%;opacity:0}
+    10%{opacity:1}
+    90%{opacity:1}
+    100%{top:110%;opacity:0}
+}
+
 button,input{
     font:inherit;
 }
@@ -67,6 +94,8 @@ button,input{
 button{
     cursor:pointer;
 }
+
+/* ================= APP ================= */
 
 .app{
     display:flex;
@@ -78,9 +107,9 @@ button{
 .sidebar{
     width:245px;
     flex-shrink:0;
-    background:rgba(3,12,24,.94);
+    background:rgba(2,10,22,.94);
     border-right:1px solid var(--line);
-    padding:20px 14px;
+    padding:18px 14px;
     display:flex;
     flex-direction:column;
     position:fixed;
@@ -88,32 +117,73 @@ button{
     top:0;
     bottom:0;
     z-index:100;
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(25px);
+    box-shadow:10px 0 50px rgba(0,0,0,.2);
 }
+
+.sidebar:after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:-1px;
+    width:1px;
+    height:100%;
+    background:linear-gradient(
+        transparent,
+        rgba(0,234,255,.5),
+        rgba(123,53,255,.35),
+        transparent
+    );
+    opacity:.7;
+}
+
+/* BRAND */
 
 .brand{
     display:flex;
     align-items:center;
-    padding:5px 8px 25px;
+    gap:11px;
+    padding:5px 8px 22px;
     border-bottom:1px solid rgba(0,157,255,.12);
     margin-bottom:20px;
 }
 
+.brand-logo{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    overflow:hidden;
+    flex-shrink:0;
+    border:1px solid rgba(0,234,255,.35);
+    box-shadow:
+        0 0 18px rgba(0,234,255,.2),
+        0 0 35px rgba(123,53,255,.08);
+    background:#071525;
+}
+
+.brand-logo img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+
 .brand-name{
-    font-size:20px;
+    font-size:18px;
     font-weight:900;
-    letter-spacing:2px;
-    color:#ffffff;
+    letter-spacing:1.5px;
+    color:#fff;
     text-shadow:
         0 0 8px rgba(0,157,255,.8),
-        0 0 18px rgba(0,157,255,.45);
+        0 0 20px rgba(0,157,255,.35);
 }
 
 .brand-sub{
-    color:#00bfff;
-    font-size:9px;
+    color:#00c8ff;
+    font-size:8px;
     margin-top:4px;
-    letter-spacing:1.5px;
+    letter-spacing:1.4px;
+    font-weight:700;
 }
 
 .nav-title{
@@ -137,15 +207,23 @@ button{
     font-size:12px;
     font-weight:600;
     border:1px solid transparent;
-    transition:.2s;
+    transition:.22s;
 }
 
 .nav-item:hover,
 .nav-item.active{
     color:#fff;
-    background:linear-gradient(90deg,rgba(0,157,255,.18),rgba(0,157,255,.04));
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,157,255,.18),
+            rgba(0,157,255,.035)
+        );
     border-color:rgba(0,157,255,.18);
-    box-shadow:inset 3px 0 0 var(--blue);
+    box-shadow:
+        inset 3px 0 0 var(--blue),
+        0 0 18px rgba(0,157,255,.035);
+    transform:translateX(2px);
 }
 
 .nav-icon{
@@ -161,7 +239,12 @@ button{
 }
 
 .developer-box{
-    background:rgba(0,157,255,.05);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,157,255,.07),
+            rgba(123,53,255,.045)
+        );
     border:1px solid rgba(0,157,255,.12);
     border-radius:13px;
     padding:12px;
@@ -178,6 +261,7 @@ button{
     color:#00c8ff;
     font-size:11px;
     margin-top:4px;
+    text-shadow:0 0 12px rgba(0,200,255,.3);
 }
 
 .logout{
@@ -216,6 +300,7 @@ button{
     font-size:24px;
     font-weight:900;
     letter-spacing:-.5px;
+    text-shadow:0 0 20px rgba(0,157,255,.08);
 }
 
 .page-title p{
@@ -245,26 +330,49 @@ button{
 }
 
 .avatar{
-    width:40px;
-    height:40px;
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(145deg,#087eea,#00d9ff);
-    box-shadow:0 0 18px rgba(0,157,255,.4);
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    overflow:hidden;
+    border:1px solid rgba(0,234,255,.28);
+    box-shadow:0 0 20px rgba(0,157,255,.25);
+    background:#071525;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 /* ================= CARDS ================= */
 
 .card{
     background:
-        linear-gradient(145deg,rgba(9,28,48,.90),rgba(3,14,27,.92));
+        linear-gradient(
+            145deg,
+            rgba(9,28,48,.90),
+            rgba(3,14,27,.94)
+        );
     border:1px solid var(--line);
     border-radius:17px;
     box-shadow:var(--shadow);
     position:relative;
     overflow:hidden;
+}
+
+.card:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    right:-100px;
+    top:-100px;
+    background:var(--blue);
+    filter:blur(80px);
+    opacity:.045;
+    pointer-events:none;
 }
 
 .card:after{
@@ -274,9 +382,18 @@ button{
     left:15%;
     right:15%;
     height:1px;
-    background:linear-gradient(90deg,transparent,#00c8ff,transparent);
-    opacity:.5;
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00c8ff,
+            #7b35ff,
+            transparent
+        );
+    opacity:.55;
 }
+
+/* ================= STATS ================= */
 
 .stats{
     display:grid;
@@ -288,6 +405,15 @@ button{
 .stat{
     padding:18px;
     min-width:0;
+    transition:.25s;
+}
+
+.stat:hover{
+    transform:translateY(-2px);
+    border-color:rgba(0,234,255,.28);
+    box-shadow:
+        0 0 35px rgba(0,157,255,.13),
+        inset 0 0 25px rgba(0,157,255,.025);
 }
 
 .stat-top{
@@ -310,8 +436,15 @@ button{
     align-items:center;
     justify-content:center;
     border-radius:10px;
-    background:rgba(0,157,255,.11);
+    color:#00d9ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,157,255,.13),
+            rgba(123,53,255,.08)
+        );
     border:1px solid rgba(0,157,255,.15);
+    box-shadow:0 0 15px rgba(0,157,255,.06);
 }
 
 .stat-value{
@@ -374,6 +507,12 @@ button{
     border-radius:50%;
     background:#00e89a;
     box-shadow:0 0 13px #00e89a;
+    animation:statusPulse 1.8s infinite;
+}
+
+@keyframes statusPulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.45;transform:scale(.75)}
 }
 
 .status-text strong{
@@ -426,9 +565,20 @@ button{
     min-width:5px;
     height:var(--h);
     border-radius:5px 5px 2px 2px;
-    background:linear-gradient(to top,#006cff,#00d9ff);
+    background:
+        linear-gradient(
+            to top,
+            #006cff,
+            #00d9ff,
+            #7b35ff
+        );
     box-shadow:0 0 12px rgba(0,157,255,.25);
     opacity:.8;
+    animation:barIn .7s ease both;
+}
+
+@keyframes barIn{
+    from{height:0}
 }
 
 /* ================= USERS ================= */
@@ -458,6 +608,7 @@ button{
 .user-row:hover{
     border-color:rgba(0,157,255,.25);
     background:rgba(0,157,255,.04);
+    transform:translateX(2px);
 }
 
 .user-name{
@@ -544,9 +695,25 @@ button{
     transform:scale(.95);
 }
 
+.btn:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
 .btn-blue{
-    background:linear-gradient(135deg,#007cff,#00bfff);
+    background:
+        linear-gradient(
+            135deg,
+            #007cff,
+            #00bfff,
+            #5d35ff
+        );
     box-shadow:0 0 14px rgba(0,157,255,.2);
+}
+
+.btn-blue:hover{
+    box-shadow:0 0 22px rgba(0,157,255,.35);
+    transform:translateY(-1px);
 }
 
 .btn-dark{
@@ -590,13 +757,30 @@ button{
     max-width:510px;
     max-height:90vh;
     overflow:auto;
-    background:#061322;
+    background:
+        linear-gradient(
+            145deg,
+            #07192b,
+            #030d19
+        );
     border:1px solid rgba(0,157,255,.3);
     border-radius:20px;
     box-shadow:
         0 0 50px rgba(0,157,255,.15),
         0 25px 70px rgba(0,0,0,.7);
     padding:20px;
+    animation:modalIn .2s ease;
+}
+
+@keyframes modalIn{
+    from{
+        opacity:0;
+        transform:scale(.96) translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
 }
 
 .modal-head{
@@ -619,6 +803,11 @@ button{
     background:#091a2c;
     color:#829bb1;
     border-radius:8px;
+}
+
+.close:hover{
+    color:#fff;
+    border-color:#00aaff;
 }
 
 .form-group{
@@ -704,6 +893,10 @@ button{
     min-width:0;
 }
 
+#qrBox{
+    box-shadow:0 0 25px rgba(0,234,255,.08);
+}
+
 /* ================= TOAST ================= */
 
 .toast{
@@ -719,7 +912,7 @@ button{
     font-size:10px;
     font-weight:700;
     box-shadow:0 0 25px rgba(0,157,255,.25);
-    z-index:999;
+    z-index:9999;
     transition:.3s;
 }
 
@@ -804,10 +997,6 @@ button{
         padding:10px;
     }
 
-    .brand{
-        padding-bottom:20px;
-    }
-
     .stats{
         grid-template-columns:1fr 1fr;
     }
@@ -861,7 +1050,6 @@ button{
         flex:1;
     }
 }
-
 </style>
 </head>
 
@@ -877,6 +1065,12 @@ button{
 
         <div class="brand">
 
+            <div class="brand-logo">
+                <img
+                    src="/static/Gemini_Generated_Image_uy7ha4uy7ha4uy7h.jpeg"
+                    alt="PabloPanel Logo">
+            </div>
+
             <div>
                 <div class="brand-name">PabloPanel</div>
                 <div class="brand-sub">VPN CONTROL PANEL</div>
@@ -891,7 +1085,9 @@ button{
             Dashboard
         </a>
 
-        <a href="#users" class="nav-item" onclick="closeSidebar()">
+        <a href="#users"
+           class="nav-item"
+           onclick="closeSidebar()">
             <span class="nav-icon">♙</span>
             Users
         </a>
@@ -915,19 +1111,15 @@ button{
         <a href="https://t.me/pablo_artor"
            target="_blank"
            class="nav-item">
-
             <span class="nav-icon">✈</span>
             Join Telegram
-
         </a>
 
         <a href="https://t.me/pablo_artor"
            target="_blank"
            class="nav-item">
-
             <span class="nav-icon">♥</span>
             Support Developer
-
         </a>
 
     </div>
@@ -935,19 +1127,14 @@ button{
     <div class="sidebar-bottom">
 
         <div class="developer-box">
-
             <small>DESIGNED & DEVELOPED BY</small>
-
             <strong>PabloPanel</strong>
-
         </div>
 
         <a href="/logout"
            class="nav-item logout">
-
             <span class="nav-icon">↪</span>
             Logout
-
         </a>
 
     </div>
@@ -969,13 +1156,10 @@ button{
             </button>
 
             <div class="page-title">
-
                 <h1>Dashboard</h1>
-
                 <p>
                     Welcome back to PabloPanel Control Panel
                 </p>
-
             </div>
 
         </div>
@@ -983,15 +1167,14 @@ button{
         <div class="profile">
 
             <div class="profile-info">
-
                 <strong>Administrator</strong>
-
                 <span>● Online</span>
-
             </div>
 
             <div class="avatar">
-                ♙
+                <img
+                    src="/static/Gemini_Generated_Image_uy7ha4uy7ha4uy7h.jpeg"
+                    alt="Profile">
             </div>
 
         </div>
@@ -1005,7 +1188,6 @@ button{
         <div class="card stat">
 
             <div class="stat-top">
-
                 <span class="stat-label">
                     TOTAL USERS
                 </span>
@@ -1013,7 +1195,6 @@ button{
                 <span class="stat-icon">
                     ♙
                 </span>
-
             </div>
 
             <div class="stat-value">
@@ -1029,7 +1210,6 @@ button{
         <div class="card stat">
 
             <div class="stat-top">
-
                 <span class="stat-label">
                     ACTIVE USERS
                 </span>
@@ -1037,7 +1217,6 @@ button{
                 <span class="stat-icon">
                     ⚡
                 </span>
-
             </div>
 
             <div class="stat-value">
@@ -1053,7 +1232,6 @@ button{
         <div class="card stat">
 
             <div class="stat-top">
-
                 <span class="stat-label">
                     TOTAL TRAFFIC
                 </span>
@@ -1061,7 +1239,6 @@ button{
                 <span class="stat-icon">
                     ☁
                 </span>
-
             </div>
 
             <div class="stat-value">
@@ -1083,7 +1260,6 @@ button{
         <div class="card stat">
 
             <div class="stat-top">
-
                 <span class="stat-label">
                     USED TRAFFIC
                 </span>
@@ -1091,7 +1267,6 @@ button{
                 <span class="stat-icon">
                     ◈
                 </span>
-
             </div>
 
             <div class="stat-value">
@@ -1119,11 +1294,8 @@ button{
         <div class="card server-card">
 
             <div class="section-title">
-
                 <h2>Server Status</h2>
-
                 <span>PabloPanel</span>
-
             </div>
 
             <div class="server-status">
@@ -1131,7 +1303,6 @@ button{
                 <div class="status-dot"></div>
 
                 <div class="status-text">
-
                     <strong>
                         Server Online
                     </strong>
@@ -1139,7 +1310,6 @@ button{
                     <span>
                         Xray Core is running normally
                     </span>
-
                 </div>
 
             </div>
@@ -1147,33 +1317,18 @@ button{
             <div class="server-info">
 
                 <div class="info-box">
-
                     <span>CORE</span>
-
-                    <strong>
-                        Xray
-                    </strong>
-
+                    <strong>Xray</strong>
                 </div>
 
                 <div class="info-box">
-
                     <span>PROTOCOL</span>
-
-                    <strong>
-                        VLESS
-                    </strong>
-
+                    <strong>VLESS</strong>
                 </div>
 
                 <div class="info-box">
-
                     <span>NETWORK</span>
-
-                    <strong>
-                        WebSocket
-                    </strong>
-
+                    <strong>WebSocket</strong>
                 </div>
 
             </div>
@@ -1230,9 +1385,7 @@ button{
                 </h2>
 
                 <span style="display:block;margin-top:5px;">
-
                     Manage your VPN accounts and configurations
-
                 </span>
 
             </div>
@@ -1334,9 +1487,7 @@ button{
                         <button
                             class="btn btn-blue"
                             onclick="loadUserConfig({{ user.id }})">
-
                             Config
-
                         </button>
 
                         <button
@@ -1354,9 +1505,7 @@ button{
                         <button
                             class="btn btn-red"
                             onclick="deleteUser({{ user.id }})">
-
                             ✕
-
                         </button>
 
                     </div>
@@ -1599,9 +1748,7 @@ function showToast(message){
     toast.classList.add('show');
 
     setTimeout(()=>{
-
         toast.classList.remove('show');
-
     },2200);
 
 }
@@ -1662,9 +1809,7 @@ async function submitAddUser(event){
         document
         .getElementById('addBtnSubmit');
 
-    button.innerText =
-        'Creating...';
-
+    button.innerText = 'Creating...';
     button.disabled = true;
 
     try{
@@ -1674,12 +1819,9 @@ async function submitAddUser(event){
                 '/api/add_user',
                 {
                     method:'POST',
-
                     headers:{
-                        'Content-Type':
-                            'application/json'
+                        'Content-Type':'application/json'
                     },
-
                     body:JSON.stringify({
                         name,
                         quota,
@@ -1698,9 +1840,7 @@ async function submitAddUser(event){
             );
 
             setTimeout(()=>{
-
                 location.reload();
-
             },600);
 
         }else{
@@ -1751,6 +1891,13 @@ async function toggleUser(id){
 
             location.reload();
 
+        }else{
+
+            alert(
+                data.message ||
+                'Failed to change user status'
+            );
+
         }
 
     }catch(error){
@@ -1768,9 +1915,7 @@ async function deleteUser(id){
     if(!confirm(
         'Are you sure you want to delete this user?'
     )){
-
         return;
-
     }
 
     try{
@@ -1793,10 +1938,15 @@ async function deleteUser(id){
             );
 
             setTimeout(()=>{
-
                 location.reload();
-
             },600);
+
+        }else{
+
+            alert(
+                data.message ||
+                'Failed to delete user'
+            );
 
         }
 
@@ -1838,10 +1988,10 @@ async function loadUserConfig(id){
         }
 
         currentConfigs =
-            data.configs;
+            data.configs || [];
 
         currentSub =
-            data.sub;
+            data.sub || '';
 
         document
             .getElementById('cfgTitle')
@@ -1852,7 +2002,7 @@ async function loadUserConfig(id){
         document
             .getElementById('subUrlField')
             .value =
-            data.sub;
+            data.sub || '';
 
         const container =
             document
@@ -1891,18 +2041,14 @@ async function loadUserConfig(id){
                                 class="btn btn-blue"
                                 data-index="${index}"
                                 onclick="copyConfigByIndex(this)">
-
                                 Copy
-
                             </button>
 
                             <button
                                 class="btn btn-dark"
                                 data-index="${index}"
                                 onclick="qrConfigByIndex(this)">
-
                                 QR
-
                             </button>
 
                         </div>
@@ -1921,9 +2067,7 @@ async function loadUserConfig(id){
             .style.display =
             'none';
 
-        openModal(
-            'configModal'
-        );
+        openModal('configModal');
 
     }catch(error){
 
@@ -1953,6 +2097,14 @@ function copyConfigByIndex(button){
             button.dataset.index
         );
 
+    if(
+        !currentConfigs[index] ||
+        !currentConfigs[index].config
+    ){
+        showToast('Configuration unavailable');
+        return;
+    }
+
     copyText(
         currentConfigs[index].config
     );
@@ -1966,6 +2118,14 @@ function qrConfigByIndex(button){
             button.dataset.index
         );
 
+    if(
+        !currentConfigs[index] ||
+        !currentConfigs[index].config
+    ){
+        showToast('Configuration unavailable');
+        return;
+    }
+
     showQR(
         currentConfigs[index].config,
         currentConfigs[index].title
@@ -1975,19 +2135,30 @@ function qrConfigByIndex(button){
 
 function copySubLink(){
 
+    if(!currentSub){
+        showToast('Subscription URL unavailable');
+        return;
+    }
+
     navigator.clipboard
         .writeText(currentSub)
         .then(()=>{
-
             showToast(
                 'Subscription URL copied'
             );
-
+        })
+        .catch(()=>{
+            fallbackCopy(currentSub);
         });
 
 }
 
 function openSubLink(){
+
+    if(!currentSub){
+        showToast('Subscription URL unavailable');
+        return;
+    }
 
     window.open(
         currentSub,
@@ -2000,19 +2171,24 @@ function copyAllConfigs(){
 
     const all =
         currentConfigs
-        .map(
-            item=>item.config
-        )
+        .map(item=>item.config)
+        .filter(Boolean)
         .join('\n');
+
+    if(!all){
+        showToast('No configurations available');
+        return;
+    }
 
     navigator.clipboard
         .writeText(all)
         .then(()=>{
-
             showToast(
                 'All configurations copied'
             );
-
+        })
+        .catch(()=>{
+            fallbackCopy(all);
         });
 
 }
@@ -2022,26 +2198,47 @@ function copyText(text){
     navigator.clipboard
         .writeText(text)
         .then(()=>{
-
             showToast(
                 'Configuration copied'
             );
-
+        })
+        .catch(()=>{
+            fallbackCopy(text);
         });
+
+}
+
+function fallbackCopy(text){
+
+    const area =
+        document.createElement('textarea');
+
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+
+    document.body.appendChild(area);
+
+    area.select();
+
+    try{
+        document.execCommand('copy');
+        showToast('Copied successfully');
+    }catch(e){
+        showToast('Copy failed');
+    }
+
+    area.remove();
 
 }
 
 function showQR(config,title){
 
     const wrap =
-        document.getElementById(
-            'qrWrap'
-        );
+        document.getElementById('qrWrap');
 
     const box =
-        document.getElementById(
-            'qrBox'
-        );
+        document.getElementById('qrBox');
 
     box.innerHTML = '';
 
@@ -2057,10 +2254,15 @@ function showQR(config,title){
     document
         .getElementById('qrText')
         .innerText =
-        title;
+        title || '';
 
     wrap.style.display =
         'block';
+
+    wrap.scrollIntoView({
+        behavior:'smooth',
+        block:'nearest'
+    });
 
 }
 
@@ -2086,6 +2288,23 @@ document
         );
 
     });
+
+document.addEventListener(
+    'keydown',
+    function(event){
+
+        if(event.key === 'Escape'){
+
+            document
+                .querySelectorAll('.overlay.show')
+                .forEach(modal=>{
+                    modal.classList.remove('show');
+                });
+
+        }
+
+    }
+);
 
 </script>
 
