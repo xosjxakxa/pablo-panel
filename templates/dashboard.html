@@ -17,19 +17,13 @@
     --bg2:#06101f;
     --panel:#071525;
     --panel2:#0a1b2e;
-
     --line:rgba(0,174,255,.18);
-
     --blue:#009dff;
     --cyan:#00d9ff;
-    --purple:#7c3cff;
-
     --text:#f3f8ff;
     --muted:#7890a8;
-
     --green:#00e89a;
     --red:#ff4567;
-
     --shadow:0 0 35px rgba(0,157,255,.10);
 }
 
@@ -47,11 +41,9 @@ html,body{
 
 body{
     background:
-        radial-gradient(circle at 10% 10%,rgba(0,157,255,.13),transparent 28%),
-        radial-gradient(circle at 90% 90%,rgba(124,60,255,.12),transparent 30%),
-        radial-gradient(circle at 50% 50%,rgba(0,217,255,.035),transparent 45%),
+        radial-gradient(circle at 10% 10%,rgba(0,157,255,.12),transparent 28%),
+        radial-gradient(circle at 90% 90%,rgba(0,217,255,.08),transparent 30%),
         var(--bg);
-
     color:var(--text);
     overflow-x:hidden;
 }
@@ -61,18 +53,14 @@ body:before{
     position:fixed;
     inset:0;
     pointer-events:none;
-
     background-image:
         linear-gradient(rgba(0,157,255,.025) 1px,transparent 1px),
         linear-gradient(90deg,rgba(0,157,255,.025) 1px,transparent 1px);
-
     background-size:40px 40px;
-
     mask-image:linear-gradient(to bottom,black,transparent);
 }
 
-button,
-input{
+button,input{
     font:inherit;
 }
 
@@ -80,96 +68,69 @@ button{
     cursor:pointer;
 }
 
+/* ================= TEXT STYLE ================= */
+
+.text-logo,
+.nav-item,
+.nav-title,
+.page-title h1,
+.page-title p,
+.profile-info,
+.stat-label,
+.stat-value,
+.stat-change,
+.section-title,
+.server-status,
+.info-box,
+.user-name,
+.user-data,
+.badge,
+.btn,
+.modal,
+.default-text,
+.footer,
+.developer-box,
+.sub-box{
+    font-family:Inter,Arial,sans-serif;
+}
+
+/* ================= APP ================= */
+
 .app{
     display:flex;
     min-height:100vh;
 }
 
-/* =========================================================
-   SIDEBAR
-========================================================= */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
     width:245px;
     flex-shrink:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(3,12,24,.97),
-            rgba(2,8,18,.97)
-        );
-
+    background:rgba(3,12,24,.96);
     border-right:1px solid var(--line);
-
-    padding:18px 14px;
-
+    padding:20px 14px;
     display:flex;
     flex-direction:column;
-
     position:fixed;
     left:0;
     top:0;
     bottom:0;
-
     z-index:100;
-
-    backdrop-filter:blur(25px);
-
-    box-shadow:15px 0 50px rgba(0,0,0,.18);
+    backdrop-filter:blur(20px);
 }
 
-/* BRAND */
-
 .brand{
-    display:flex;
-    align-items:center;
-
-    padding:5px 8px 20px;
-
+    padding:5px 8px 25px;
     border-bottom:1px solid rgba(0,157,255,.12);
-
     margin-bottom:20px;
 }
 
-.brand-logo{
-    width:48px;
-    height:48px;
-
-    flex-shrink:0;
-
-    margin-right:11px;
-
-    border-radius:13px;
-
-    overflow:hidden;
-
-    background:#020712;
-
-    border:1px solid rgba(0,234,255,.22);
-
-    box-shadow:
-        0 0 18px rgba(0,234,255,.18),
-        0 0 35px rgba(124,60,255,.10);
-}
-
-.brand-logo img{
-    width:100%;
-    height:100%;
-
-    display:block;
-
-    object-fit:cover;
-}
-
 .brand-name{
-    font-size:20px;
+    font-family:Arial,sans-serif;
+    font-size:21px;
     font-weight:900;
-
-    letter-spacing:2px;
-
+    letter-spacing:1px;
     color:#fff;
-
     text-shadow:
         0 0 8px rgba(0,157,255,.8),
         0 0 18px rgba(0,157,255,.45);
@@ -177,190 +138,122 @@ button{
 
 .brand-sub{
     color:#00bfff;
-
     font-size:8px;
-
-    margin-top:4px;
-
-    letter-spacing:1.4px;
-
-    font-weight:700;
+    margin-top:5px;
+    letter-spacing:2px;
+    font-weight:800;
 }
 
 .nav-title{
     color:#405d78;
-
-    font-size:9px;
-
+    font-size:8px;
     font-weight:800;
-
-    letter-spacing:1.5px;
-
-    padding:0 10px 8px;
+    letter-spacing:2px;
+    padding:0 10px 9px;
 }
 
 .nav-item{
-    display:flex;
-    align-items:center;
-
-    gap:11px;
-
+    display:block;
     width:100%;
-
     padding:12px;
-
     margin-bottom:5px;
-
     border-radius:11px;
-
     color:#7890a8;
-
     text-decoration:none;
-
-    font-size:12px;
-
-    font-weight:600;
-
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.4px;
     border:1px solid transparent;
-
     transition:.2s;
 }
 
 .nav-item:hover,
 .nav-item.active{
     color:#fff;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(0,157,255,.18),
-            rgba(124,60,255,.05)
-        );
-
+    background:linear-gradient(
+        90deg,
+        rgba(0,157,255,.18),
+        rgba(0,157,255,.04)
+    );
     border-color:rgba(0,157,255,.18);
-
-    box-shadow:
-        inset 3px 0 0 var(--blue),
-        0 0 18px rgba(0,157,255,.04);
-}
-
-.nav-icon{
-    width:22px;
-
-    text-align:center;
-
-    font-size:15px;
+    box-shadow:inset 3px 0 0 var(--blue);
 }
 
 .sidebar-bottom{
     margin-top:auto;
-
     border-top:1px solid rgba(0,157,255,.12);
-
     padding-top:14px;
 }
 
 .developer-box{
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,157,255,.055),
-            rgba(124,60,255,.035)
-        );
-
+    background:rgba(0,157,255,.05);
     border:1px solid rgba(0,157,255,.12);
-
     border-radius:13px;
-
     padding:12px;
-
     margin-bottom:12px;
 }
 
 .developer-box small{
     color:#55718c;
-
-    font-size:8px;
+    font-size:7px;
+    letter-spacing:1px;
 }
 
 .developer-box strong{
     display:block;
-
     color:#00c8ff;
-
-    font-size:11px;
-
-    margin-top:4px;
+    font-size:10px;
+    margin-top:5px;
 }
 
 .logout{
     color:#ff5877;
 }
 
-/* =========================================================
-   MAIN
-========================================================= */
+/* ================= MAIN ================= */
 
 .main{
     width:calc(100% - 245px);
-
     margin-left:245px;
-
     padding:22px;
-
     min-width:0;
 }
 
 .topbar{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:15px;
-
     margin-bottom:22px;
 }
 
 .mobile-menu{
     display:none;
-
     width:42px;
     height:42px;
-
     border:1px solid var(--line);
-
     border-radius:12px;
-
     color:#fff;
-
     background:var(--panel);
-
-    font-size:20px;
+    font-size:15px;
 }
 
 .page-title h1{
-    font-size:24px;
-
+    font-family:Arial,sans-serif;
+    font-size:25px;
     font-weight:900;
-
-    letter-spacing:-.5px;
+    letter-spacing:.5px;
 }
 
 .page-title p{
     color:var(--muted);
-
-    font-size:11px;
-
-    margin-top:5px;
+    font-size:10px;
+    margin-top:6px;
 }
 
 .profile{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 }
 
@@ -370,50 +263,30 @@ button{
 
 .profile-info strong{
     display:block;
-
-    font-size:11px;
+    font-size:10px;
 }
 
 .profile-info span{
     color:#00d99a;
-
-    font-size:9px;
+    font-size:8px;
 }
 
 .avatar{
     width:40px;
     height:40px;
-
     border-radius:12px;
-
-    overflow:hidden;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #087eea,
-            #00d9ff
-        );
-
-    box-shadow:
-        0 0 18px rgba(0,157,255,.4);
+    background:linear-gradient(
+        145deg,
+        #087eea,
+        #00d9ff
+    );
+    box-shadow:0 0 18px rgba(0,157,255,.4);
 }
 
-.avatar img{
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-}
-
-/* =========================================================
-   CARDS
-========================================================= */
+/* ================= CARDS ================= */
 
 .card{
     background:
@@ -422,127 +295,73 @@ button{
             rgba(9,28,48,.90),
             rgba(3,14,27,.92)
         );
-
     border:1px solid var(--line);
-
     border-radius:17px;
-
     box-shadow:var(--shadow);
-
     position:relative;
-
     overflow:hidden;
 }
 
 .card:after{
     content:"";
-
     position:absolute;
-
     top:0;
     left:15%;
     right:15%;
-
     height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #00c8ff,
-            #7c3cff,
-            transparent
-        );
-
-    opacity:.55;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #00c8ff,
+        transparent
+    );
+    opacity:.5;
 }
 
 .stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:13px;
-
     margin-bottom:15px;
 }
 
 .stat{
     padding:18px;
-
     min-width:0;
 }
 
 .stat-top{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:10px;
 }
 
 .stat-label{
     color:#7690a9;
-
-    font-size:10px;
-
-    font-weight:600;
-}
-
-.stat-icon{
-    width:35px;
-    height:35px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:10px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,157,255,.13),
-            rgba(124,60,255,.08)
-        );
-
-    border:1px solid rgba(0,157,255,.15);
-
-    box-shadow:
-        0 0 15px rgba(0,157,255,.06);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
 .stat-value{
     font-size:25px;
-
     font-weight:900;
-
     margin-top:12px;
 }
 
 .stat-change{
     color:#00db9a;
-
-    font-size:9px;
-
+    font-size:8px;
     margin-top:5px;
 }
 
-/* =========================================================
-   CONTENT GRID
-========================================================= */
+/* ================= CONTENT ================= */
 
 .grid{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:15px;
-
     margin-bottom:15px;
 }
 
@@ -553,147 +372,101 @@ button{
 
 .section-title{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:18px;
 }
 
 .section-title h2{
-    font-size:13px;
-
-    font-weight:800;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.4px;
 }
 
 .section-title span{
     color:#506d88;
-
-    font-size:9px;
+    font-size:8px;
 }
 
 .server-status{
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:12px;
-
     border:1px solid rgba(0,232,154,.14);
-
     background:rgba(0,232,154,.035);
-
     border-radius:12px;
-
     margin-bottom:15px;
 }
 
 .status-dot{
-    width:9px;
-    height:9px;
-
+    width:8px;
+    height:8px;
     border-radius:50%;
-
     background:#00e89a;
-
-    box-shadow:
-        0 0 13px #00e89a;
+    box-shadow:0 0 13px #00e89a;
 }
 
 .status-text strong{
     display:block;
-
-    font-size:11px;
+    font-size:10px;
 }
 
 .status-text span{
     display:block;
-
     color:#63809b;
-
-    font-size:8px;
-
+    font-size:7px;
     margin-top:3px;
 }
 
 .server-info{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:8px;
 }
 
 .info-box{
     background:rgba(0,0,0,.18);
-
     border:1px solid rgba(255,255,255,.04);
-
     border-radius:10px;
-
     padding:10px;
 }
 
 .info-box span{
     display:block;
-
     color:#526d86;
-
-    font-size:8px;
+    font-size:7px;
 }
 
 .info-box strong{
     display:block;
-
-    font-size:10px;
-
+    font-size:9px;
     margin-top:5px;
 }
 
 .chart{
     height:145px;
-
     display:flex;
-
     align-items:flex-end;
-
     gap:7px;
-
     padding:10px 4px 0;
 }
 
 .bar{
     flex:1;
-
     min-width:5px;
-
     height:var(--h);
-
-    border-radius:
-        5px 5px 2px 2px;
-
-    background:
-        linear-gradient(
-            to top,
-            #006cff,
-            #00d9ff,
-            #7c3cff
-        );
-
-    box-shadow:
-        0 0 12px
-        rgba(0,157,255,.25);
-
+    border-radius:5px 5px 2px 2px;
+    background:linear-gradient(
+        to top,
+        #006cff,
+        #00d9ff
+    );
+    box-shadow:0 0 12px rgba(0,157,255,.25);
     opacity:.8;
 }
 
-/* =========================================================
-   USERS
-========================================================= */
+/* ================= USERS ================= */
 
 .users-card{
     padding:20px;
@@ -701,103 +474,63 @@ button{
 
 .user-list{
     display:flex;
-
     flex-direction:column;
-
     gap:8px;
 }
 
 .user-row{
     display:grid;
-
-    grid-template-columns:
-        1.4fr .7fr .7fr auto;
-
+    grid-template-columns:1.4fr .7fr .7fr auto;
     align-items:center;
-
     gap:12px;
-
     padding:12px;
-
     border-radius:12px;
-
-    background:
-        rgba(2,11,22,.55);
-
-    border:
-        1px solid
-        rgba(0,157,255,.08);
-
+    background:rgba(2,11,22,.55);
+    border:1px solid rgba(0,157,255,.08);
     transition:.2s;
 }
 
 .user-row:hover{
-    border-color:
-        rgba(0,157,255,.25);
-
-    background:
-        rgba(0,157,255,.04);
+    border-color:rgba(0,157,255,.25);
+    background:rgba(0,157,255,.04);
 }
 
 .user-name{
     display:flex;
-
     align-items:center;
-
     gap:9px;
-
     min-width:0;
 }
 
 .user-avatar{
     width:31px;
     height:31px;
-
     flex-shrink:0;
-
     border-radius:9px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(0,157,255,.13),
-            rgba(124,60,255,.10)
-        );
-
+    background:rgba(0,157,255,.12);
     color:#00c8ff;
-
-    border:1px solid rgba(0,157,255,.10);
 }
 
 .user-name strong{
     display:block;
-
-    font-size:11px;
-
+    font-size:10px;
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
 .user-name small{
     color:#4e6b84;
-
     display:block;
-
-    font-size:8px;
-
+    font-size:7px;
     margin-top:3px;
 }
 
 .user-data{
     color:#8ba3ba;
-
-    font-size:9px;
+    font-size:8px;
 }
 
 .user-data b{
@@ -806,64 +539,41 @@ button{
 
 .badge{
     display:inline-flex;
-
     align-items:center;
-
-    gap:5px;
-
     padding:5px 8px;
-
     border-radius:7px;
-
-    font-size:8px;
-
+    font-size:7px;
     font-weight:800;
+    letter-spacing:.4px;
 }
 
 .badge.active{
     color:#00e89a;
-
-    background:
-        rgba(0,232,154,.08);
-
-    border:
-        1px solid
-        rgba(0,232,154,.14);
+    background:rgba(0,232,154,.08);
+    border:1px solid rgba(0,232,154,.14);
 }
 
 .badge.off{
     color:#ff5274;
-
-    background:
-        rgba(255,69,103,.08);
-
-    border:
-        1px solid
-        rgba(255,69,103,.14);
+    background:rgba(255,69,103,.08);
+    border:1px solid rgba(255,69,103,.14);
 }
 
 .actions{
     display:flex;
-
     gap:5px;
-
     justify-content:flex-end;
 }
 
 .btn{
     border:0;
-
     border-radius:8px;
-
     padding:8px 10px;
-
-    font-size:9px;
-
+    font-size:8px;
     font-weight:800;
-
     color:#fff;
-
     transition:.2s;
+    letter-spacing:.3px;
 }
 
 .btn:active{
@@ -871,73 +581,43 @@ button{
 }
 
 .btn-blue{
-    background:
-        linear-gradient(
-            135deg,
-            #007cff,
-            #00bfff,
-            #713cff
-        );
-
-    box-shadow:
-        0 0 14px
-        rgba(0,157,255,.2);
+    background:linear-gradient(
+        135deg,
+        #007cff,
+        #00bfff
+    );
+    box-shadow:0 0 14px rgba(0,157,255,.2);
 }
 
 .btn-dark{
     background:#0b1a2b;
-
-    border:
-        1px solid
-        #17344e;
-
+    border:1px solid #17344e;
     color:#9db4c9;
 }
 
 .btn-red{
-    background:
-        rgba(255,69,103,.1);
-
-    border:
-        1px solid
-        rgba(255,69,103,.18);
-
+    background:rgba(255,69,103,.1);
+    border:1px solid rgba(255,69,103,.18);
     color:#ff617e;
 }
 
 .btn-green{
-    background:
-        rgba(0,232,154,.08);
-
-    border:
-        1px solid
-        rgba(0,232,154,.15);
-
+    background:rgba(0,232,154,.08);
+    border:1px solid rgba(0,232,154,.15);
     color:#00e89a;
 }
 
-/* =========================================================
-   MODALS
-========================================================= */
+/* ================= MODALS ================= */
 
 .overlay{
     position:fixed;
-
     inset:0;
-
-    background:
-        rgba(0,4,10,.82);
-
+    background:rgba(0,4,10,.82);
     backdrop-filter:blur(10px);
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     padding:15px;
-
     z-index:500;
 }
 
@@ -947,69 +627,40 @@ button{
 
 .modal{
     width:100%;
-
     max-width:510px;
-
     max-height:90vh;
-
     overflow:auto;
-
-    background:
-        linear-gradient(
-            145deg,
-            #07182a,
-            #040c18
-        );
-
-    border:
-        1px solid
-        rgba(0,157,255,.3);
-
+    background:#061322;
+    border:1px solid rgba(0,157,255,.3);
     border-radius:20px;
-
     box-shadow:
-        0 0 50px
-        rgba(0,157,255,.15),
-
-        0 25px 70px
-        rgba(0,0,0,.7);
-
+        0 0 50px rgba(0,157,255,.15),
+        0 25px 70px rgba(0,0,0,.7);
     padding:20px;
 }
 
 .modal-head{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     margin-bottom:18px;
-
     padding-bottom:13px;
-
-    border-bottom:
-        1px solid
-        rgba(0,157,255,.1);
+    border-bottom:1px solid rgba(0,157,255,.1);
 }
 
 .modal-head h3{
-    font-size:14px;
+    font-size:13px;
+    font-weight:900;
 }
 
 .close{
     width:30px;
     height:30px;
-
-    border:
-        1px solid
-        #18344c;
-
+    border:1px solid #18344c;
     background:#091a2c;
-
     color:#829bb1;
-
     border-radius:8px;
+    font-size:14px;
 }
 
 .form-group{
@@ -1018,116 +669,76 @@ button{
 
 .form-group label{
     display:block;
-
     color:#7e98b0;
-
-    font-size:9px;
-
+    font-size:8px;
     margin-bottom:6px;
 }
 
 .input{
     width:100%;
-
     background:#020b16;
-
     color:#fff;
-
-    border:
-        1px solid
-        #17344e;
-
+    border:1px solid #17344e;
     border-radius:10px;
-
     padding:11px 12px;
-
     outline:none;
-
-    font-size:11px;
+    font-size:10px;
 }
 
 .input:focus{
     border-color:#00aaff;
-
-    box-shadow:
-        0 0 12px
-        rgba(0,157,255,.12);
+    box-shadow:0 0 12px rgba(0,157,255,.12);
 }
 
 .config-box{
     background:#020b16;
-
-    border:
-        1px solid
-        #12304a;
-
+    border:1px solid #12304a;
     border-radius:12px;
-
     padding:11px;
-
     margin-bottom:8px;
 }
 
 .config-top{
     display:flex;
-
     justify-content:space-between;
-
     gap:10px;
-
     align-items:center;
 }
 
 .config-title{
-    font-size:10px;
-
-    font-weight:800;
+    font-size:9px;
+    font-weight:900;
 }
 
 .config-desc{
     color:#536f88;
-
-    font-size:8px;
-
+    font-size:7px;
     margin-top:4px;
 }
 
 .config-actions{
     display:flex;
-
     gap:5px;
-
     flex-shrink:0;
 }
 
 .sub-box{
     padding:12px;
-
-    background:
-        rgba(0,157,255,.045);
-
-    border:
-        1px solid
-        rgba(0,157,255,.12);
-
+    background:rgba(0,157,255,.045);
+    border:1px solid rgba(0,157,255,.12);
     border-radius:12px;
-
     margin-bottom:13px;
 }
 
 .sub-box label{
     display:block;
-
     color:#66829b;
-
-    font-size:8px;
-
+    font-size:7px;
     margin-bottom:6px;
 }
 
 .sub-row{
     display:flex;
-
     gap:5px;
 }
 
@@ -1135,64 +746,37 @@ button{
     min-width:0;
 }
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
-
     left:50%;
-
     bottom:20px;
-
-    transform:
-        translate(-50%,100px);
-
+    transform:translate(-50%,100px);
     background:#061a2b;
-
     color:#fff;
-
-    border:
-        1px solid
-        #007fca;
-
+    border:1px solid #007fca;
     border-radius:12px;
-
     padding:11px 18px;
-
-    font-size:10px;
-
-    font-weight:700;
-
-    box-shadow:
-        0 0 25px
-        rgba(0,157,255,.25);
-
+    font-size:9px;
+    font-weight:800;
+    box-shadow:0 0 25px rgba(0,157,255,.25);
     z-index:999;
-
     transition:.3s;
 }
 
 .toast.show{
-    transform:
-        translate(-50%,0);
+    transform:translate(-50%,0);
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
     .sidebar{
         transform:translateX(-105%);
-
         transition:.3s;
-
-        box-shadow:
-            10px 0 40px
-            rgba(0,0,0,.6);
+        box-shadow:10px 0 40px rgba(0,0,0,.6);
     }
 
     .sidebar.open{
@@ -1201,9 +785,7 @@ button{
 
     .main{
         width:100%;
-
         margin-left:0;
-
         padding:14px;
     }
 
@@ -1220,7 +802,7 @@ button{
     }
 
     .page-title p{
-        font-size:9px;
+        font-size:8px;
     }
 
     .profile-info{
@@ -1228,9 +810,7 @@ button{
     }
 
     .stats{
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
         gap:9px;
     }
 
@@ -1248,7 +828,6 @@ button{
 
     .user-row{
         grid-template-columns:1fr;
-
         gap:10px;
     }
 
@@ -1271,22 +850,12 @@ button{
         padding-bottom:20px;
     }
 
-    .brand-logo{
-        width:44px;
-        height:44px;
-    }
-
-    .brand-name{
-        font-size:18px;
-    }
-
     .stats{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
     }
 
     .stat-label{
-        font-size:8px;
+        font-size:7px;
     }
 
     .stat-value{
@@ -1308,25 +877,21 @@ button{
     }
 
     .user-name strong{
-        font-size:10px;
+        font-size:9px;
     }
 
     .actions{
         display:grid;
-
-        grid-template-columns:
-            1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr;
     }
 
     .modal{
         padding:15px;
-
         border-radius:16px;
     }
 
     .config-top{
         align-items:flex-start;
-
         flex-direction:column;
     }
 
@@ -1337,14 +902,6 @@ button{
     .config-actions .btn{
         flex:1;
     }
-
-    .sub-row{
-        flex-direction:column;
-    }
-
-    .sub-row .btn{
-        width:100%;
-    }
 }
 
 </style>
@@ -1354,130 +911,55 @@ button{
 
 <div class="app">
 
-<!-- =========================================================
-     SIDEBAR
-========================================================= -->
-
 <aside class="sidebar" id="sidebar">
 
     <div>
 
         <div class="brand">
 
-            <div class="brand-logo">
-
-                <img
-                    src="/static/pablo-logo.png"
-                    alt="PabloPanel Logo"
-                >
-
-            </div>
-
             <div>
-
-                <div class="brand-name">
-                    PabloPanel
-                </div>
-
-                <div class="brand-sub">
-                    VPN CONTROL PANEL
-                </div>
-
+                <div class="brand-name">𝙋𝙖𝙗𝙡𝙤𝙋𝙖𝙣𝙚𝙡</div>
+                <div class="brand-sub">𝙑𝙋𝙉 𝘾𝙊𝙉𝙏𝙍𝙊𝙇 𝙋𝘼𝙉𝙀𝙇</div>
             </div>
 
         </div>
 
-        <div class="nav-title">
-            MAIN MENU
+        <div class="nav-title">𝙈𝘼𝙄𝙉 𝙈𝙀𝙉𝙐</div>
+
+        <a href="/dashboard" class="nav-item active">
+            𝘿𝙖𝙨𝙝𝙗𝙤𝙖𝙧𝙙
+        </a>
+
+        <a href="#users"
+           class="nav-item"
+           onclick="closeSidebar()">
+            𝙐𝙨𝙚𝙧𝙨
+        </a>
+
+        <a href="#create"
+           class="nav-item"
+           onclick="openModal('addModal');closeSidebar();return false;">
+            𝘾𝙧𝙚𝙖𝙩𝙚 𝙐𝙨𝙚𝙧
+        </a>
+
+        <a href="/settings" class="nav-item">
+            𝙋𝙖𝙣𝙚𝙡 𝙎𝙚𝙩𝙩𝙞𝙣𝙜𝙨
+        </a>
+
+        <div class="nav-title" style="margin-top:18px;">
+            𝘾𝙊𝙈𝙈𝙐𝙉𝙄𝙏𝙔
         </div>
 
-        <a
-            href="/dashboard"
-            class="nav-item active"
-        >
-
-            <span class="nav-icon">
-                ⌂
-            </span>
-
-            Dashboard
-
+        <a href="https://t.me/pablo_artor"
+           target="_blank"
+           class="nav-item">
+            𝙅𝙤𝙞𝙣 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢
         </a>
 
-        <a
-            href="#users"
-            class="nav-item"
-            onclick="closeSidebar()"
-        >
-
-            <span class="nav-icon">
-                ♙
-            </span>
-
-            Users
-
-        </a>
-
-        <a
-            href="#create"
-            class="nav-item"
-            onclick="openModal('addModal');closeSidebar();return false;"
-        >
-
-            <span class="nav-icon">
-                ＋
-            </span>
-
-            Create User
-
-        </a>
-
-        <a
-            href="/settings"
-            class="nav-item"
-        >
-
-            <span class="nav-icon">
-                ⚙
-            </span>
-
-            Panel Settings
-
-        </a>
-
-        <div
-            class="nav-title"
-            style="margin-top:18px;"
-        >
-            COMMUNITY
-        </div>
-
-        <a
-            href="https://t.me/pablo_artor"
-            target="_blank"
-            class="nav-item"
-        >
-
-            <span class="nav-icon">
-                ✈
-            </span>
-
-            Join Telegram
-
-        </a>
-
-        <a
-            href="https://t.me/pablo_artor"
-            target="_blank"
-            class="nav-item"
-        >
-
-            <span class="nav-icon">
-                ♥
-            </span>
-
-            Support Developer
-
+        <a href="https://t.me/pablo_artor"
+           target="_blank"
+           class="nav-item">
+            𝙎𝙪𝙥𝙥𝙤𝙧𝙩 𝘿𝙚𝙫𝙚𝙡𝙤𝙥𝙚𝙧
         </a>
 
     </div>
@@ -1486,64 +968,39 @@ button{
 
         <div class="developer-box">
 
-            <small>
-                DESIGNED & DEVELOPED BY
-            </small>
+            <small>𝘿𝙀𝙎𝙄𝙂𝙉𝙀𝘿 𝘼𝙉𝘿 𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝘿 𝘽𝙔</small>
 
-            <strong>
-                PabloPanel
-            </strong>
+            <strong>𝙋𝙖𝙗𝙡𝙤𝙋𝙖𝙣𝙚𝙡</strong>
 
         </div>
 
-        <a
-            href="/logout"
-            class="nav-item logout"
-        >
-
-            <span class="nav-icon">
-                ↪
-            </span>
-
-            Logout
-
+        <a href="/logout"
+           class="nav-item logout">
+            𝙇𝙤𝙜𝙤𝙪𝙩
         </a>
 
     </div>
 
 </aside>
 
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
 <main class="main">
 
     <div class="topbar">
 
-        <div
-            style="
-                display:flex;
-                align-items:center;
-                gap:10px;
-            "
-        >
+        <div style="display:flex;align-items:center;gap:10px;">
 
             <button
                 class="mobile-menu"
-                onclick="toggleSidebar()"
-            >
-                ☰
+                onclick="toggleSidebar()">
+                MENU
             </button>
 
             <div class="page-title">
 
-                <h1>
-                    Dashboard
-                </h1>
+                <h1>𝘿𝙖𝙨𝙝𝙗𝙤𝙖𝙧𝙙</h1>
 
                 <p>
-                    Welcome back to PabloPanel Control Panel
+                    𝙒𝙚𝙡𝙘𝙤𝙢𝙚 𝙗𝙖𝙘𝙠 𝙩𝙤 𝙋𝙖𝙗𝙡𝙤𝙋𝙖𝙣𝙚𝙡 𝘾𝙤𝙣𝙩𝙧𝙤𝙡 𝙋𝙖𝙣𝙚𝙡
                 </p>
 
             </div>
@@ -1554,32 +1011,21 @@ button{
 
             <div class="profile-info">
 
-                <strong>
-                    Administrator
-                </strong>
+                <strong>𝘼𝙙𝙢𝙞𝙣𝙞𝙨𝙩𝙧𝙖𝙩𝙤𝙧</strong>
 
-                <span>
-                    ● Online
-                </span>
+                <span>𝙊𝙣𝙡𝙞𝙣𝙚</span>
 
             </div>
 
             <div class="avatar">
-
-                <img
-                    src="/static/pablo-logo.png"
-                    alt="PabloPanel"
-                >
-
+                PP
             </div>
 
         </div>
 
     </div>
 
-    <!-- =====================================================
-         STATS
-    ====================================================== -->
+    <!-- STATS -->
 
     <section class="stats">
 
@@ -1588,11 +1034,7 @@ button{
             <div class="stat-top">
 
                 <span class="stat-label">
-                    TOTAL USERS
-                </span>
-
-                <span class="stat-icon">
-                    ♙
+                    𝙏𝙊𝙏𝘼𝙇 𝙐𝙎𝙀𝙍𝙎
                 </span>
 
             </div>
@@ -1602,7 +1044,7 @@ button{
             </div>
 
             <div class="stat-change">
-                ↑ All accounts
+                𝘼𝙡𝙡 𝘼𝙘𝙘𝙤𝙪𝙣𝙩𝙨
             </div>
 
         </div>
@@ -1612,11 +1054,7 @@ button{
             <div class="stat-top">
 
                 <span class="stat-label">
-                    ACTIVE USERS
-                </span>
-
-                <span class="stat-icon">
-                    ⚡
+                    𝘼𝘾𝙏𝙄𝙑𝙀 𝙐𝙎𝙀𝙍𝙎
                 </span>
 
             </div>
@@ -1626,7 +1064,7 @@ button{
             </div>
 
             <div class="stat-change">
-                ↑ Currently active
+                𝘾𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝘼𝙘𝙩𝙞𝙫𝙚
             </div>
 
         </div>
@@ -1636,11 +1074,7 @@ button{
             <div class="stat-top">
 
                 <span class="stat-label">
-                    TOTAL TRAFFIC
-                </span>
-
-                <span class="stat-icon">
-                    ☁
+                    𝙏𝙊𝙏𝘼𝙇 𝙏𝙍𝘼𝙁𝙁𝙄𝘾
                 </span>
 
             </div>
@@ -1649,19 +1083,14 @@ button{
 
                 {{ total_gb }}
 
-                <small
-                    style="
-                        font-size:11px;
-                        color:#66839c;
-                    "
-                >
-                    GB
+                <small style="font-size:11px;color:#66839c;">
+                    𝙂𝘽
                 </small>
 
             </div>
 
             <div class="stat-change">
-                Available quota
+                𝘼𝙫𝙖𝙞𝙡𝙖𝙗𝙡𝙚 𝙌𝙪𝙤𝙩𝙖
             </div>
 
         </div>
@@ -1671,11 +1100,7 @@ button{
             <div class="stat-top">
 
                 <span class="stat-label">
-                    USED TRAFFIC
-                </span>
-
-                <span class="stat-icon">
-                    ◈
+                    𝙐𝙎𝙀𝘿 𝙏𝙍𝘼𝙁𝙁𝙄𝘾
                 </span>
 
             </div>
@@ -1684,28 +1109,21 @@ button{
 
                 {{ total_used }}
 
-                <small
-                    style="
-                        font-size:11px;
-                        color:#66839c;
-                    "
-                >
-                    GB
+                <small style="font-size:11px;color:#66839c;">
+                    𝙂𝘽
                 </small>
 
             </div>
 
             <div class="stat-change">
-                Total consumption
+                𝙏𝙤𝙩𝙖𝙡 𝘾𝙤𝙣𝙨𝙪𝙢𝙥𝙩𝙞𝙤𝙣
             </div>
 
         </div>
 
     </section>
 
-    <!-- =====================================================
-         SERVER + TRAFFIC
-    ====================================================== -->
+    <!-- SERVER + TRAFFIC -->
 
     <section class="grid">
 
@@ -1713,13 +1131,9 @@ button{
 
             <div class="section-title">
 
-                <h2>
-                    Server Status
-                </h2>
+                <h2>𝙎𝙚𝙧𝙫𝙚𝙧 𝙎𝙩𝙖𝙩𝙪𝙨𝙝2</h2>
 
-                <span>
-                    PabloPanel
-                </span>
+                <span>𝙋𝙖𝙗𝙡𝙤𝙋𝙖𝙣𝙚𝙡</span>
 
             </div>
 
@@ -1730,11 +1144,11 @@ button{
                 <div class="status-text">
 
                     <strong>
-                        Server Online
+                        𝙎𝙚𝙧𝙫𝙚𝙧 𝙊𝙣𝙡𝙞𝙣𝙚
                     </strong>
 
                     <span>
-                        Xray Core is running normally
+                        𝙓𝙧𝙖𝙮 𝘾𝙤𝙧𝙚 𝙞𝙨 𝙧𝙪𝙣𝙣𝙞𝙣𝙜 𝙣𝙤𝙧𝙢𝙖𝙡𝙡𝙮
                     </span>
 
                 </div>
@@ -1745,37 +1159,25 @@ button{
 
                 <div class="info-box">
 
-                    <span>
-                        CORE
-                    </span>
+                    <span>𝘾𝙊𝙍𝙀</span>
 
-                    <strong>
-                        Xray
-                    </strong>
+                    <strong>𝙓𝙧𝙖𝙮</strong>
 
                 </div>
 
                 <div class="info-box">
 
-                    <span>
-                        PROTOCOL
-                    </span>
+                    <span>𝙋𝙍𝙊𝙏𝙊𝘾𝙊𝙇</span>
 
-                    <strong>
-                        VLESS
-                    </strong>
+                    <strong>𝙑𝙇𝙀𝙎𝙎</strong>
 
                 </div>
 
                 <div class="info-box">
 
-                    <span>
-                        NETWORK
-                    </span>
+                    <span>𝙉𝙀𝙏𝙒𝙊𝙍𝙆</span>
 
-                    <strong>
-                        WebSocket
-                    </strong>
+                    <strong>𝙒𝙚𝙗𝙎𝙤𝙘𝙠𝙚𝙩</strong>
 
                 </div>
 
@@ -1787,12 +1189,10 @@ button{
 
             <div class="section-title">
 
-                <h2>
-                    Traffic Overview
-                </h2>
+                <h2>𝙏𝙧𝙖𝙛𝙛𝙞𝙘 𝙊𝙫𝙚𝙧𝙫𝙞𝙚𝙬</h2>
 
                 <span>
-                    {{ total_used }} GB USED
+                    {{ total_used }} 𝙂𝘽 𝙐𝙎𝙀𝘿
                 </span>
 
             </div>
@@ -1820,40 +1220,29 @@ button{
 
     </section>
 
-    <!-- =====================================================
-         USERS
-    ====================================================== -->
+    <!-- USERS -->
 
-    <section
-        class="card users-card"
-        id="users"
-    >
+    <section class="card users-card" id="users">
 
         <div class="section-title">
 
             <div>
 
                 <h2>
-                    Users Management
+                    𝙐𝙨𝙚𝙧𝙨 𝙈𝙖𝙣𝙖𝙜𝙚𝙢𝙚𝙣𝙩
                 </h2>
 
-                <span
-                    style="
-                        display:block;
-                        margin-top:5px;
-                    "
-                >
-                    Manage your VPN accounts and configurations
+                <span style="display:block;margin-top:5px;">
+                    𝙈𝙖𝙣𝙖𝙜𝙚 𝙮𝙤𝙪𝙧 𝙑𝙋𝙉 𝙖𝙘𝙘𝙤𝙪𝙣𝙩𝙨 𝙖𝙣𝙙 𝙘𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨
                 </span>
 
             </div>
 
             <button
                 class="btn btn-blue"
-                onclick="openModal('addModal')"
-            >
+                onclick="openModal('addModal')">
 
-                ＋ Create User
+                𝘾𝙧𝙚𝙖𝙩𝙚 𝙐𝙨𝙚𝙧
 
             </button>
 
@@ -1884,7 +1273,7 @@ button{
                 <div class="user-name">
 
                     <div class="user-avatar">
-                        ♙
+                        PP
                     </div>
 
                     <div>
@@ -1904,46 +1293,39 @@ button{
                 <div class="user-data">
 
                     <b>
-                        {{ used_gb }} GB
+                        {{ used_gb }} 𝙂𝘽
                     </b>
 
                     <br>
 
-                    Used
+                    𝙐𝙨𝙚𝙙
 
                 </div>
 
                 <div class="user-data">
 
                     <b>
-                        {{ user.quota_gb }} GB
+                        {{ user.quota_gb }} 𝙂𝘽
                     </b>
 
                     <br>
 
-                    Quota
+                    𝙌𝙪𝙤𝙩𝙖
 
                 </div>
 
-                <div
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:8px;
-                        justify-content:flex-end;
-                    "
-                >
+                <div style="display:flex;align-items:center;gap:8px;justify-content:flex-end;">
 
                     {% if user.enabled == 1 %}
 
                     <span class="badge active">
-                        ● Active
+                        𝘼𝙘𝙩𝙞𝙫𝙚
                     </span>
 
                     {% else %}
 
                     <span class="badge off">
-                        ● Disabled
+                        𝘿𝙞𝙨𝙖𝙗𝙡𝙚𝙙
                     </span>
 
                     {% endif %}
@@ -1952,29 +1334,26 @@ button{
 
                         <button
                             class="btn btn-blue"
-                            onclick="loadUserConfig({{ user.id }})"
-                        >
-                            Config
+                            onclick="loadUserConfig({{ user.id }})">
+                            𝘾𝙤𝙣𝙛𝙞𝙜
                         </button>
 
                         <button
                             class="btn btn-dark"
-                            onclick="toggleUser({{ user.id }})"
-                        >
+                            onclick="toggleUser({{ user.id }})">
 
                             {% if user.enabled == 1 %}
-                                Off
+                            𝙊𝙛𝙛
                             {% else %}
-                                On
+                            𝙊𝙣
                             {% endif %}
 
                         </button>
 
                         <button
                             class="btn btn-red"
-                            onclick="deleteUser({{ user.id }})"
-                        >
-                            ✕
+                            onclick="deleteUser({{ user.id }})">
+                            𝘿𝙚𝙡𝙚𝙩𝙚
                         </button>
 
                     </div>
@@ -1987,25 +1366,10 @@ button{
 
         {% else %}
 
-            <div
-                style="
-                    padding:50px 10px;
-                    text-align:center;
-                    color:#557089;
-                "
-            >
+            <div style="padding:50px 10px;text-align:center;color:#557089;">
 
-                <div
-                    style="
-                        font-size:35px;
-                        margin-bottom:10px;
-                    "
-                >
-                    ♙
-                </div>
-
-                <div style="font-size:12px;">
-                    No users created yet
+                <div class="default-text" style="font-size:12px;">
+                    𝙉𝙤 𝙪𝙨𝙚𝙧𝙨 𝙘𝙧𝙚𝙖𝙩𝙚𝙙 𝙮𝙚𝙩
                 </div>
 
             </div>
@@ -2020,66 +1384,48 @@ button{
 
 </div>
 
-<!-- =========================================================
-     ADD USER MODAL
-========================================================= -->
+<!-- ADD USER -->
 
-<div
-    class="overlay"
-    id="addModal"
->
+<div class="overlay" id="addModal">
 
     <div class="modal">
 
         <div class="modal-head">
 
             <h3>
-                ＋ Create New User
+                𝘾𝙧𝙚𝙖𝙩𝙚 𝙉𝙚𝙬 𝙐𝙨𝙚𝙧
             </h3>
 
             <button
                 class="close"
-                onclick="closeModal('addModal')"
-            >
-                ×
+                onclick="closeModal('addModal')">
+                CLOSE
             </button>
 
         </div>
 
         <form
             id="addUserForm"
-            onsubmit="submitAddUser(event)"
-        >
+            onsubmit="submitAddUser(event)">
 
             <div class="form-group">
 
-                <label>
-                    USERNAME
-                </label>
+                <label>𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀</label>
 
                 <input
                     id="add_name"
                     class="input"
                     type="text"
-                    placeholder="example: user01"
-                    required
-                >
+                    placeholder="𝙚𝙭𝙖𝙢𝙥𝙡𝙚: 𝙪𝙨𝙚𝙧01"
+                    required>
 
             </div>
 
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:1fr 1fr;
-                    gap:10px;
-                "
-            >
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
 
                 <div class="form-group">
 
-                    <label>
-                        TRAFFIC QUOTA (GB)
-                    </label>
+                    <label>𝙏𝙍𝘼𝙁𝙁𝙄𝘾 𝙌𝙐𝙊𝙏𝘼 (𝙂𝘽)</label>
 
                     <input
                         id="add_quota"
@@ -2087,16 +1433,13 @@ button{
                         type="number"
                         value="30"
                         min="1"
-                        required
-                    >
+                        required>
 
                 </div>
 
                 <div class="form-group">
 
-                    <label>
-                        VALIDITY (DAYS)
-                    </label>
+                    <label>𝙑𝘼𝙇𝙄𝘿𝙄𝙏𝙔 (𝘿𝘼𝙔𝙎)</label>
 
                     <input
                         id="add_days"
@@ -2104,8 +1447,7 @@ button{
                         type="number"
                         value="30"
                         min="1"
-                        required
-                    >
+                        required>
 
                 </div>
 
@@ -2115,12 +1457,10 @@ button{
                 type="submit"
                 id="addBtnSubmit"
                 class="btn btn-blue"
-                style="
-                    width:100%;
-                    padding:13px;
-                "
-            >
-                Create VPN Account
+                style="width:100%;padding:13px;">
+
+                𝘾𝙧𝙚𝙖𝙩𝙚 𝙑𝙋𝙉 𝘼𝙘𝙘𝙤𝙪𝙣𝙩
+
             </button>
 
         </form>
@@ -2129,28 +1469,22 @@ button{
 
 </div>
 
-<!-- =========================================================
-     CONFIG MODAL
-========================================================= -->
+<!-- CONFIG -->
 
-<div
-    class="overlay"
-    id="configModal"
->
+<div class="overlay" id="configModal">
 
     <div class="modal">
 
         <div class="modal-head">
 
             <h3 id="cfgTitle">
-                ⚡ User Configurations
+                𝙐𝙨𝙚𝙧 𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨
             </h3>
 
             <button
                 class="close"
-                onclick="closeModal('configModal')"
-            >
-                ×
+                onclick="closeModal('configModal')">
+                CLOSE
             </button>
 
         </div>
@@ -2158,7 +1492,7 @@ button{
         <div class="sub-box">
 
             <label>
-                SUBSCRIPTION URL
+                𝙎𝙐𝘽𝙎𝘾𝙍𝙄𝙋𝙏𝙄𝙊𝙉 𝙐𝙍𝙇
             </label>
 
             <div class="sub-row">
@@ -2166,39 +1500,28 @@ button{
                 <input
                     id="subUrlField"
                     class="input"
-                    readonly
-                >
+                    readonly>
 
                 <button
                     onclick="copySubLink()"
-                    class="btn btn-blue"
-                >
-                    Copy
+                    class="btn btn-blue">
+                    𝘾𝙤𝙥𝙮
                 </button>
 
             </div>
 
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:1fr 1fr;
-                    gap:6px;
-                    margin-top:7px;
-                "
-            >
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px;">
 
                 <button
                     onclick="openSubLink()"
-                    class="btn btn-dark"
-                >
-                    Open Web Panel
+                    class="btn btn-dark">
+                    𝙊𝙥𝙚𝙣 𝙒𝙚𝙗 𝙋𝙖𝙣𝙚𝙡
                 </button>
 
                 <button
                     onclick="copyAllConfigs()"
-                    class="btn btn-green"
-                >
-                    Copy All
+                    class="btn btn-green">
+                    𝘾𝙤𝙥𝙮 𝘼𝙡𝙡
                 </button>
 
             </div>
@@ -2209,68 +1532,41 @@ button{
 
         <div
             id="qrWrap"
-            style="
-                display:none;
-                text-align:center;
-                margin-top:12px;
-            "
-        >
+            style="display:none;text-align:center;margin-top:12px;">
 
             <div
                 id="qrBox"
-                style="
-                    display:inline-block;
-                    background:#fff;
-                    padding:9px;
-                    border-radius:12px;
-                "
-            ></div>
+                style="display:inline-block;background:#fff;padding:9px;border-radius:12px;">
+            </div>
 
             <div
                 id="qrText"
-                style="
-                    color:#7190a9;
-                    font-size:9px;
-                    margin-top:7px;
-                "
-            ></div>
+                style="color:#7190a9;font-size:8px;margin-top:7px;">
+            </div>
 
         </div>
 
         <button
             onclick="closeModal('configModal')"
             class="btn btn-dark"
-            style="
-                width:100%;
-                margin-top:12px;
-            "
-        >
-            Close
+            style="width:100%;margin-top:12px;">
+
+            𝘾𝙡𝙤𝙨𝙚
+
         </button>
 
     </div>
 
 </div>
 
-<!-- =========================================================
-     TOAST
-========================================================= -->
-
-<div
-    id="toast"
-    class="toast"
->
-    System message
+<div id="toast" class="toast">
+    𝙎𝙮𝙨𝙩𝙚𝙢 𝙈𝙚𝙨𝙨𝙖𝙜𝙚
 </div>
 
 <script>
 
 let currentConfigs = [];
 let currentSub = '';
-
-/* =========================================================
-   TOAST
-========================================================= */
 
 function showToast(message){
 
@@ -2282,16 +1578,10 @@ function showToast(message){
     toast.classList.add('show');
 
     setTimeout(()=>{
-
         toast.classList.remove('show');
-
     },2200);
 
 }
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
 
 function toggleSidebar(){
 
@@ -2309,10 +1599,6 @@ function closeSidebar(){
 
 }
 
-/* =========================================================
-   MODALS
-========================================================= */
-
 function openModal(id){
 
     document
@@ -2328,10 +1614,6 @@ function closeModal(id){
         .classList.remove('show');
 
 }
-
-/* =========================================================
-   CREATE USER
-========================================================= */
 
 async function submitAddUser(event){
 
@@ -2358,7 +1640,7 @@ async function submitAddUser(event){
         .getElementById('addBtnSubmit');
 
     button.innerText =
-        'Creating...';
+        '𝘾𝙧𝙚𝙖𝙩𝙞𝙣𝙜...';
 
     button.disabled = true;
 
@@ -2389,24 +1671,22 @@ async function submitAddUser(event){
         if(data.status === 'success'){
 
             showToast(
-                'VPN account created successfully'
+                '𝙑𝙋𝙉 𝘼𝙘𝙘𝙤𝙪𝙣𝙩 𝘾𝙧𝙚𝙖𝙩𝙚𝙙'
             );
 
             setTimeout(()=>{
-
                 location.reload();
-
             },600);
 
         }else{
 
             alert(
                 data.message ||
-                'Failed to create user'
+                '𝙁𝙖𝙞𝙡𝙚𝙙 𝙩𝙤 𝘾𝙧𝙚𝙖𝙩𝙚 𝙐𝙨𝙚𝙧'
             );
 
             button.innerText =
-                'Create VPN Account';
+                '𝘾𝙧𝙚𝙖𝙩𝙚 𝙑𝙋𝙉 𝘼𝙘𝙘𝙤𝙪𝙣𝙩';
 
             button.disabled = false;
 
@@ -2415,21 +1695,17 @@ async function submitAddUser(event){
     }catch(error){
 
         alert(
-            'Server connection error'
+            '𝙎𝙚𝙧𝙫𝙚𝙧 𝘾𝙤𝙣𝙣𝙚𝙘𝙩𝙞𝙤𝙣 𝙀𝙧𝙧𝙤𝙧'
         );
 
         button.innerText =
-            'Create VPN Account';
+            '𝘾𝙧𝙚𝙖𝙩𝙚 𝙑𝙋𝙉 𝘼𝙘𝙘𝙤𝙪𝙣𝙩';
 
         button.disabled = false;
 
     }
 
 }
-
-/* =========================================================
-   TOGGLE USER
-========================================================= */
 
 async function toggleUser(id){
 
@@ -2447,40 +1723,25 @@ async function toggleUser(id){
             await response.json();
 
         if(data.status === 'success'){
-
             location.reload();
-
-        }else{
-
-            alert(
-                data.message ||
-                'Failed to change user status'
-            );
-
         }
 
     }catch(error){
 
         alert(
-            'Failed to change user status'
+            '𝙁𝙖𝙞𝙡𝙚𝙙 𝙩𝙤 𝘾𝙝𝙖𝙣𝙜𝙚 𝙐𝙨𝙚𝙧 𝙎𝙩𝙖𝙩𝙪𝙨'
         );
 
     }
 
 }
 
-/* =========================================================
-   DELETE USER
-========================================================= */
-
 async function deleteUser(id){
 
     if(!confirm(
-        'Are you sure you want to delete this user?'
+        '𝘼𝙧𝙚 𝙮𝙤𝙪 𝙨𝙪𝙧𝙚 𝙮𝙤𝙪 𝙬𝙖𝙣𝙩 𝙩𝙤 𝙙𝙚𝙡𝙚𝙩𝙚 𝙩𝙝𝙞𝙨 𝙪𝙨𝙚𝙧?'
     )){
-
         return;
-
     }
 
     try{
@@ -2499,42 +1760,29 @@ async function deleteUser(id){
         if(data.status === 'success'){
 
             showToast(
-                'User deleted successfully'
+                '𝙐𝙨𝙚𝙧 𝘿𝙚𝙡𝙚𝙩𝙚𝙙'
             );
 
             setTimeout(()=>{
-
                 location.reload();
-
             },600);
-
-        }else{
-
-            alert(
-                data.message ||
-                'Failed to delete user'
-            );
 
         }
 
     }catch(error){
 
         alert(
-            'Failed to delete user'
+            '𝙁𝙖𝙞𝙡𝙚𝙙 𝙩𝙤 𝘿𝙚𝙡𝙚𝙩𝙚 𝙐𝙨𝙚𝙧'
         );
 
     }
 
 }
 
-/* =========================================================
-   LOAD USER CONFIG
-========================================================= */
-
 async function loadUserConfig(id){
 
     showToast(
-        'Loading configurations...'
+        '𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨...'
     );
 
     try{
@@ -2551,33 +1799,29 @@ async function loadUserConfig(id){
 
             alert(
                 data.message ||
-                'Failed to load configurations'
+                '𝙁𝙖𝙞𝙡𝙚𝙙 𝙩𝙤 𝙇𝙤𝙖𝙙 𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨'
             );
 
             return;
 
         }
 
-        currentConfigs =
-            data.configs || [];
-
-        currentSub =
-            data.sub || '';
+        currentConfigs = data.configs;
+        currentSub = data.sub;
 
         document
             .getElementById('cfgTitle')
             .innerText =
-            '⚡ Configurations · ' +
+            '𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨 · ' +
             data.user.name;
 
         document
             .getElementById('subUrlField')
             .value =
-            data.sub || '';
+            data.sub;
 
         const container =
-            document
-            .getElementById('cfgContainer');
+            document.getElementById('cfgContainer');
 
         container.innerHTML = '';
 
@@ -2611,17 +1855,15 @@ async function loadUserConfig(id){
                             <button
                                 class="btn btn-blue"
                                 data-index="${index}"
-                                onclick="copyConfigByIndex(this)"
-                            >
-                                Copy
+                                onclick="copyConfigByIndex(this)">
+                                𝘾𝙤𝙥𝙮
                             </button>
 
                             <button
                                 class="btn btn-dark"
                                 data-index="${index}"
-                                onclick="qrConfigByIndex(this)"
-                            >
-                                QR
+                                onclick="qrConfigByIndex(this)">
+                                𝙌𝙍
                             </button>
 
                         </div>
@@ -2640,23 +1882,17 @@ async function loadUserConfig(id){
             .style.display =
             'none';
 
-        openModal(
-            'configModal'
-        );
+        openModal('configModal');
 
     }catch(error){
 
         alert(
-            'Failed to load configurations'
+            '𝙁𝙖𝙞𝙡𝙚𝙙 𝙩𝙤 𝙇𝙤𝙖𝙙 𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨'
         );
 
     }
 
 }
-
-/* =========================================================
-   SECURITY
-========================================================= */
 
 function escapeHtml(value){
 
@@ -2669,29 +1905,10 @@ function escapeHtml(value){
 
 }
 
-/* =========================================================
-   COPY CONFIG
-========================================================= */
-
 function copyConfigByIndex(button){
 
     const index =
-        Number(
-            button.dataset.index
-        );
-
-    if(
-        !currentConfigs[index] ||
-        !currentConfigs[index].config
-    ){
-
-        showToast(
-            'Configuration not available'
-        );
-
-        return;
-
-    }
+        Number(button.dataset.index);
 
     copyText(
         currentConfigs[index].config
@@ -2699,29 +1916,10 @@ function copyConfigByIndex(button){
 
 }
 
-/* =========================================================
-   QR
-========================================================= */
-
 function qrConfigByIndex(button){
 
     const index =
-        Number(
-            button.dataset.index
-        );
-
-    if(
-        !currentConfigs[index] ||
-        !currentConfigs[index].config
-    ){
-
-        showToast(
-            'Configuration not available'
-        );
-
-        return;
-
-    }
+        Number(button.dataset.index);
 
     showQR(
         currentConfigs[index].config,
@@ -2730,44 +1928,19 @@ function qrConfigByIndex(button){
 
 }
 
-/* =========================================================
-   COPY SUB
-========================================================= */
-
 function copySubLink(){
 
-    if(!currentSub){
-
-        showToast(
-            'Subscription URL not available'
-        );
-
-        return;
-
-    }
-
-    copyText(
-        currentSub,
-        'Subscription URL copied'
-    );
+    navigator.clipboard
+        .writeText(currentSub)
+        .then(()=>{
+            showToast(
+                '𝙎𝙪𝙗𝙨𝙘𝙧𝙞𝙥𝙩𝙞𝙤𝙣 𝙐𝙍𝙇 𝘾𝙤𝙥𝙞𝙚𝙙'
+            );
+        });
 
 }
 
-/* =========================================================
-   OPEN SUB
-========================================================= */
-
 function openSubLink(){
-
-    if(!currentSub){
-
-        showToast(
-            'Subscription URL not available'
-        );
-
-        return;
-
-    }
 
     window.open(
         currentSub,
@@ -2776,118 +1949,42 @@ function openSubLink(){
 
 }
 
-/* =========================================================
-   COPY ALL
-========================================================= */
-
 function copyAllConfigs(){
-
-    if(!currentConfigs.length){
-
-        showToast(
-            'No configurations available'
-        );
-
-        return;
-
-    }
 
     const all =
         currentConfigs
-        .map(
-            item=>item.config
-        )
-        .filter(Boolean)
+        .map(item=>item.config)
         .join('\n');
 
-    copyText(
-        all,
-        'All configurations copied'
-    );
-
-}
-
-/* =========================================================
-   COPY TEXT
-========================================================= */
-
-function copyText(
-    text,
-    successMessage='Configuration copied'
-){
-
-    if(
-        !navigator.clipboard
-    ){
-
-        const textarea =
-            document.createElement('textarea');
-
-        textarea.value = text;
-
-        textarea.style.position =
-            'fixed';
-
-        textarea.style.opacity =
-            '0';
-
-        document.body.appendChild(
-            textarea
-        );
-
-        textarea.select();
-
-        document.execCommand(
-            'copy'
-        );
-
-        textarea.remove();
-
-        showToast(
-            successMessage
-        );
-
-        return;
-
-    }
-
     navigator.clipboard
-        .writeText(text)
+        .writeText(all)
         .then(()=>{
-
             showToast(
-                successMessage
+                '𝘼𝙡𝙡 𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣𝙨 𝘾𝙤𝙥𝙞𝙚𝙙'
             );
-
-        })
-        .catch(()=>{
-
-            showToast(
-                'Copy failed'
-            );
-
         });
 
 }
 
-/* =========================================================
-   SHOW QR
-========================================================= */
+function copyText(text){
 
-function showQR(
-    config,
-    title
-){
+    navigator.clipboard
+        .writeText(text)
+        .then(()=>{
+            showToast(
+                '𝘾𝙤𝙣𝙛𝙞𝙜𝙪𝙧𝙖𝙩𝙞𝙤𝙣 𝘾𝙤𝙥𝙞𝙚𝙙'
+            );
+        });
+
+}
+
+function showQR(config,title){
 
     const wrap =
-        document.getElementById(
-            'qrWrap'
-        );
+        document.getElementById('qrWrap');
 
     const box =
-        document.getElementById(
-            'qrBox'
-        );
+        document.getElementById('qrBox');
 
     box.innerHTML = '';
 
@@ -2910,61 +2007,26 @@ function showQR(
 
 }
 
-/* =========================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-========================================================= */
-
 document
     .querySelectorAll('.overlay')
-    .forEach(
-        overlay=>{
+    .forEach(overlay=>{
 
-            overlay.addEventListener(
-                'click',
-                function(event){
+        overlay.addEventListener(
+            'click',
+            function(event){
 
-                    if(
-                        event.target === overlay
-                    ){
+                if(event.target === overlay){
 
-                        overlay
-                            .classList
-                            .remove('show');
-
-                    }
+                    overlay
+                        .classList
+                        .remove('show');
 
                 }
-            );
 
-        }
-    );
+            }
+        );
 
-/* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener(
-    'keydown',
-    function(event){
-
-        if(
-            event.key === 'Escape'
-        ){
-
-            document
-                .querySelectorAll('.overlay.show')
-                .forEach(
-                    overlay=>{
-                        overlay.classList.remove(
-                            'show'
-                        );
-                    }
-                );
-
-        }
-
-    }
-);
+    });
 
 </script>
 
