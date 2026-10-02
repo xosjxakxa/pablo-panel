@@ -17,18 +17,17 @@
 }
 
 :root{
-    --bg:#02050b;
-    --card:rgba(5,11,23,.90);
-    --cyan:#00eaff;
-    --blue:#2874ff;
-    --purple:#7b35ff;
-    --text:#f5f9ff;
+    --bg:#02030b;
+    --card:rgba(5,8,20,.90);
+    --blue:#00eaff;
+    --cyan:#00c8ff;
+    --purple:#7c3cff;
+    --pink:#c43cff;
+    --text:#f5f8ff;
     --muted:#71809b;
-    --border:rgba(0,234,255,.18);
 }
 
-html,
-body{
+html,body{
     width:100%;
     min-height:100%;
 }
@@ -41,29 +40,27 @@ body{
     padding:18px;
     overflow:hidden;
 
-    color:var(--text);
-    font-family:Arial,sans-serif;
-
     background:
         radial-gradient(
-            circle at 10% 15%,
-            rgba(0,234,255,.16),
+            circle at 15% 15%,
+            rgba(0,234,255,.15),
             transparent 28%
         ),
         radial-gradient(
-            circle at 90% 85%,
-            rgba(123,53,255,.20),
-            transparent 32%
+            circle at 85% 85%,
+            rgba(124,60,255,.18),
+            transparent 30%
         ),
         radial-gradient(
             circle at 50% 50%,
-            rgba(40,116,255,.06),
+            rgba(40,80,255,.06),
             transparent 45%
         ),
-        #02050b;
-}
+        #02030b;
 
-/* ================= GRID ================= */
+    color:var(--text);
+    font-family:Arial,sans-serif;
+}
 
 body::before{
     content:"";
@@ -73,12 +70,12 @@ body::before{
 
     background-image:
         linear-gradient(
-            rgba(0,234,255,.028) 1px,
+            rgba(0,234,255,.025) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(0,234,255,.028) 1px,
+            rgba(0,234,255,.025) 1px,
             transparent 1px
         );
 
@@ -92,34 +89,30 @@ body::before{
         );
 }
 
-/* ================= SCAN ================= */
-
 body::after{
     content:"";
     position:fixed;
-    left:0;
-    right:0;
-    top:-10%;
+    width:100%;
     height:1px;
+    left:0;
+    top:-10%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
             rgba(0,234,255,.55),
+            rgba(124,60,255,.55),
             transparent
         );
 
     box-shadow:
-        0 0 18px rgba(0,234,255,.45);
+        0 0 20px rgba(0,234,255,.5);
 
     animation:scan 7s linear infinite;
-
-    pointer-events:none;
 }
 
 @keyframes scan{
-
     0%{
         top:-10%;
         opacity:0;
@@ -139,19 +132,16 @@ body::after{
     }
 }
 
-/* ================= WRAP ================= */
-
 .login-wrap{
     width:100%;
     max-width:430px;
     position:relative;
 
     animation:
-        appear .7s ease both;
+        appear .7s ease;
 }
 
 @keyframes appear{
-
     from{
         opacity:0;
         transform:
@@ -167,80 +157,78 @@ body::after{
     }
 }
 
-/* ================= GLOW ================= */
+/* GLOW */
 
 .glow{
     position:absolute;
+    width:260px;
+    height:260px;
 
-    width:240px;
-    height:240px;
+    top:-100px;
+    left:-110px;
 
     border-radius:50%;
 
-    background:var(--cyan);
+    background:#00eaff;
 
-    filter:blur(115px);
+    filter:blur(120px);
 
-    opacity:.13;
-
-    top:-110px;
-    left:-100px;
+    opacity:.12;
 
     pointer-events:none;
 }
 
 .glow2{
     position:absolute;
+    width:240px;
+    height:240px;
 
-    width:210px;
-    height:210px;
+    right:-110px;
+    bottom:-100px;
 
     border-radius:50%;
 
-    background:var(--purple);
+    background:#7c3cff;
 
-    filter:blur(105px);
+    filter:blur(120px);
 
     opacity:.15;
-
-    right:-90px;
-    bottom:-90px;
 
     pointer-events:none;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 
 .card{
     position:relative;
 
-    padding:32px 24px 22px;
+    padding:
+        30px
+        24px
+        23px;
 
     border-radius:30px;
-
-    border:
-        1px solid
-        rgba(0,234,255,.20);
 
     background:
         linear-gradient(
             145deg,
-            rgba(10,20,38,.96),
-            rgba(3,8,18,.95)
+            rgba(10,17,36,.95),
+            rgba(3,5,15,.95)
         );
+
+    border:
+        1px solid
+        rgba(0,220,255,.20);
 
     backdrop-filter:blur(30px);
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.70),
-        0 0 45px rgba(0,234,255,.08),
-        inset 0 1px rgba(255,255,255,.07),
-        inset 0 0 40px rgba(0,234,255,.02);
+        0 30px 90px rgba(0,0,0,.7),
+        0 0 50px rgba(0,220,255,.08),
+        inset 0 1px rgba(255,255,255,.08);
 
     overflow:hidden;
 }
-
-/* TOP NEON LINE */
 
 .card::before{
     content:"";
@@ -249,6 +237,7 @@ body::after{
 
     top:0;
     left:10%;
+
     width:80%;
     height:2px;
 
@@ -256,119 +245,82 @@ body::after{
         linear-gradient(
             90deg,
             transparent,
-            var(--cyan),
-            var(--blue),
-            var(--purple),
+            #00eaff,
+            #2874ff,
+            #9b4dff,
             transparent
         );
 
     box-shadow:
-        0 0 12px var(--cyan),
-        0 0 25px rgba(0,234,255,.35);
-}
-
-/* INNER BORDER */
-
-.card::after{
-    content:"";
-
-    position:absolute;
-
-    inset:1px;
-
-    border-radius:29px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.025);
-
-    pointer-events:none;
-}
-
-/* ================= BRAND ================= */
-
-.brand{
-    position:relative;
-    z-index:2;
-
-    text-align:center;
+        0 0 15px #00eaff,
+        0 0 30px rgba(124,60,255,.5);
 }
 
 /* LOGO */
 
-.logo{
-    width:82px;
-    height:82px;
+.brand{
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+.logo-wrap{
+    width:115px;
+    height:115px;
 
     margin:
         0 auto
-        17px;
+        15px;
 
-    padding:4px;
+    border-radius:28px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:22px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(0,234,255,.35),
-            rgba(40,116,255,.20),
-            rgba(123,53,255,.35)
-        );
+        rgba(0,0,0,.28);
 
     border:
         1px solid
-        rgba(0,234,255,.40);
+        rgba(0,234,255,.20);
 
     box-shadow:
-        0 0 25px rgba(0,234,255,.18),
-        0 0 55px rgba(123,53,255,.10),
-        inset 0 0 20px rgba(0,234,255,.08);
+        0 0 30px rgba(0,234,255,.13),
+        0 0 60px rgba(124,60,255,.08),
+        inset 0 0 25px rgba(0,234,255,.04);
+
+    overflow:hidden;
 
     animation:
-        logoPulse 3s ease-in-out infinite;
+        logoGlow 3s ease-in-out infinite;
 }
 
-.logo img{
+.logo-wrap img{
     width:100%;
     height:100%;
 
     object-fit:cover;
 
-    border-radius:18px;
-
     display:block;
-
-    background:#020812;
 }
 
-@keyframes logoPulse{
-
-    0%,
-    100%{
+@keyframes logoGlow{
+    0%,100%{
         box-shadow:
-            0 0 25px rgba(0,234,255,.18),
-            0 0 55px rgba(123,53,255,.10),
-            inset 0 0 20px rgba(0,234,255,.08);
+            0 0 25px rgba(0,234,255,.12),
+            0 0 50px rgba(124,60,255,.06);
     }
 
     50%{
         box-shadow:
-            0 0 35px rgba(0,234,255,.30),
-            0 0 70px rgba(123,53,255,.16),
-            inset 0 0 25px rgba(0,234,255,.12);
+            0 0 35px rgba(0,234,255,.25),
+            0 0 65px rgba(124,60,255,.14);
     }
 }
 
-/* TITLE */
-
 .brand h1{
-    font-size:32px;
-
+    font-size:31px;
     font-weight:900;
 
     letter-spacing:2px;
@@ -376,10 +328,10 @@ body::after{
     background:
         linear-gradient(
             90deg,
-            #ffffff,
+            #fff,
             #00eaff,
             #4285ff,
-            #9a6cff
+            #a14dff
         );
 
     -webkit-background-clip:text;
@@ -387,17 +339,15 @@ body::after{
 
     background-clip:text;
 
-    color:transparent;
-
     text-shadow:
         0 0 25px
         rgba(0,234,255,.15);
 }
 
 .brand p{
-    margin-top:9px;
+    margin-top:8px;
 
-    color:#65748e;
+    color:#64748b;
 
     font-size:9px;
 
@@ -406,20 +356,19 @@ body::after{
     font-weight:700;
 }
 
-/* ================= STATUS ================= */
+/* STATUS */
 
 .status{
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     gap:8px;
 
-    margin:
-        20px auto 0;
-
     width:max-content;
+
+    margin:
+        19px auto 0;
 
     padding:
         7px 13px;
@@ -427,13 +376,13 @@ body::after{
     border-radius:30px;
 
     background:
-        rgba(0,234,255,.045);
+        rgba(0,234,255,.035);
 
     border:
         1px solid
         rgba(0,234,255,.10);
 
-    color:#7e8ca5;
+    color:#8290a7;
 
     font-size:9px;
 
@@ -455,26 +404,23 @@ body::after{
 }
 
 @keyframes pulse{
-
-    0%,
-    100%{
+    0%,100%{
         opacity:1;
         transform:scale(1);
     }
 
     50%{
-        opacity:.4;
+        opacity:.45;
         transform:scale(.7);
     }
 }
 
-/* ================= FORM ================= */
+/* FORM */
 
 .form{
     margin-top:27px;
 
     position:relative;
-
     z-index:2;
 }
 
@@ -483,11 +429,7 @@ body::after{
 }
 
 label{
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
+    display:block;
 
     margin-bottom:8px;
 
@@ -499,27 +441,6 @@ label{
 
     letter-spacing:1px;
 }
-
-.label-line{
-    height:1px;
-
-    width:25px;
-
-    margin-left:7px;
-
-    flex:1;
-
-    opacity:.5;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--cyan),
-            transparent
-        );
-}
-
-/* ================= INPUT ================= */
 
 .input-wrap{
     position:relative;
@@ -534,23 +455,19 @@ label{
     transform:
         translateY(-50%);
 
-    color:#42526d;
+    color:#465671;
 
     font-size:12px;
 
     pointer-events:none;
-
-    transition:.25s;
 }
 
 input{
     width:100%;
-
     height:53px;
 
     padding:
-        0 15px
-        0 40px;
+        0 15px 0 40px;
 
     border-radius:15px;
 
@@ -559,13 +476,9 @@ input{
         rgba(255,255,255,.075);
 
     background:
-        linear-gradient(
-            120deg,
-            rgba(2,7,18,.95),
-            rgba(7,14,28,.82)
-        );
+        rgba(2,7,18,.92);
 
-    color:#fff;
+    color:white;
 
     outline:none;
 
@@ -574,34 +487,24 @@ input{
     transition:.25s;
 
     box-shadow:
-        inset
-        0 0 15px
-        rgba(0,0,0,.18);
+        inset 0 0 15px
+        rgba(0,0,0,.2);
 }
 
 input:focus{
-
     border-color:
         rgba(0,234,255,.55);
 
-    background:
-        rgba(2,10,22,.98);
-
     box-shadow:
         0 0 0 3px
-        rgba(0,234,255,.045),
+        rgba(0,234,255,.04),
 
-        0 0 22px
-        rgba(0,234,255,.10),
-
-        inset
-        0 0 18px
-        rgba(0,234,255,.025);
+        0 0 25px
+        rgba(0,234,255,.12);
 }
 
 .input-wrap:focus-within .input-icon{
-
-    color:var(--cyan);
+    color:#00eaff;
 
     text-shadow:
         0 0 10px
@@ -609,27 +512,26 @@ input:focus{
 }
 
 input::placeholder{
-    color:#3e4b62;
+    color:#3d4b63;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 
 .btn{
     position:relative;
 
     width:100%;
-
     height:54px;
+
+    margin-top:4px;
 
     border:0;
 
     border-radius:16px;
 
-    margin-top:4px;
-
     overflow:hidden;
 
-    color:#fff;
+    color:white;
 
     font-weight:900;
 
@@ -642,20 +544,20 @@ input::placeholder{
     background:
         linear-gradient(
             100deg,
-            #00aeea,
-            #2563ff,
-            #713cff
+            #00bff5,
+            #2865ff,
+            #713cff,
+            #a53cff
         );
 
     box-shadow:
         0 0 25px
-        rgba(0,191,255,.18),
+        rgba(0,191,255,.20),
 
-        0 8px 25px
-        rgba(0,0,0,.25),
+        0 10px 30px
+        rgba(0,0,0,.3),
 
-        inset
-        0 1px
+        inset 0 1px
         rgba(255,255,255,.25);
 
     transition:.25s;
@@ -676,7 +578,7 @@ input::placeholder{
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.24),
+            rgba(255,255,255,.25),
             transparent
         );
 
@@ -686,16 +588,14 @@ input::placeholder{
 }
 
 .btn:hover{
-
-    transform:
-        translateY(-2px);
+    transform:translateY(-2px);
 
     box-shadow:
         0 0 35px
-        rgba(0,191,255,.30),
+        rgba(0,191,255,.3),
 
-        0 12px 30px
-        rgba(0,0,0,.35);
+        0 12px 35px
+        rgba(0,0,0,.4);
 }
 
 .btn:hover::before{
@@ -706,13 +606,12 @@ input::placeholder{
     transform:scale(.985);
 }
 
-/* ================= ERROR ================= */
+/* ERROR */
 
 .error{
     margin-top:19px;
 
-    padding:
-        12px 13px;
+    padding:12px;
 
     border-radius:13px;
 
@@ -730,43 +629,28 @@ input::placeholder{
 
     background:
         rgba(255,50,90,.065);
-
-    box-shadow:
-        0 0 20px
-        rgba(255,50,90,.04);
 }
 
-/* ================= DEFAULT LOGIN ================= */
+/* DEFAULT LOGIN */
 
 .default-info{
     margin-top:17px;
 
-    padding:
-        13px 14px;
+    padding:13px 14px;
 
     border-radius:14px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(0,234,255,.035),
-            rgba(123,53,255,.035)
-        );
+        rgba(0,234,255,.025);
 
     border:
         1px solid
-        rgba(0,234,255,.09);
+        rgba(0,234,255,.075);
 
     text-align:center;
-
-    box-shadow:
-        inset
-        0 0 18px
-        rgba(0,234,255,.015);
 }
 
 .default-info .title{
-
     color:#52627c;
 
     font-size:8px;
@@ -779,27 +663,20 @@ input::placeholder{
 }
 
 .default-info .value{
-
     color:#9eabc0;
 
     font-size:10px;
 }
 
 .default-info strong{
-
     color:#00eaff;
 
     font-weight:900;
-
-    text-shadow:
-        0 0 8px
-        rgba(0,234,255,.25);
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 .footer{
-
     margin-top:22px;
 
     padding-top:17px;
@@ -818,40 +695,29 @@ input::placeholder{
 }
 
 .footer span{
-
     color:#00d9ff;
 
     font-weight:900;
-
-    text-shadow:
-        0 0 8px
-        rgba(0,217,255,.25);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
-@media(max-width:480px){
-
-    body{
-        padding:12px;
-    }
+@media(max-width:420px){
 
     .card{
         padding:
-            29px 18px 20px;
+            27px
+            18px
+            20px;
 
-        border-radius:27px;
+        border-radius:26px;
     }
 
-    .logo{
-        width:74px;
-        height:74px;
+    .logo-wrap{
+        width:95px;
+        height:95px;
 
-        border-radius:20px;
-    }
-
-    .logo img{
-        border-radius:16px;
+        border-radius:23px;
     }
 
     .brand h1{
@@ -860,7 +726,6 @@ input::placeholder{
 
     .brand p{
         font-size:8px;
-        letter-spacing:1.5px;
     }
 
     input{
@@ -872,42 +737,27 @@ input::placeholder{
     }
 }
 
-@media(max-height:650px){
+@media(max-width:350px){
 
-    .card{
-        padding-top:22px;
-        padding-bottom:16px;
+    body{
+        padding:10px;
     }
 
-    .logo{
-        width:62px;
-        height:62px;
-        margin-bottom:10px;
+    .logo-wrap{
+        width:82px;
+        height:82px;
     }
 
     .brand h1{
-        font-size:26px;
+        font-size:24px;
     }
 
     .status{
-        margin-top:12px;
+        margin-top:14px;
     }
 
     .form{
-        margin-top:18px;
-    }
-
-    .group{
-        margin-bottom:12px;
-    }
-
-    .default-info{
-        margin-top:12px;
-    }
-
-    .footer{
-        margin-top:14px;
-        padding-top:12px;
+        margin-top:20px;
     }
 }
 </style>
@@ -922,22 +772,17 @@ input::placeholder{
 
     <div class="card">
 
-        <!-- ================= BRAND ================= -->
-
         <div class="brand">
 
-            <div class="logo">
-
+            <!-- NEW PABLOPANEL LOGO -->
+            <div class="logo-wrap">
                 <img
-                    src="/static/Gemini_Generated_Image_uy7ha4uy7ha4uy7h.jpeg"
+                    src="/static/pablo-logo.png"
                     alt="PabloPanel Logo"
                 >
-
             </div>
 
-            <h1>
-                PabloPanel
-            </h1>
+            <h1>PabloPanel</h1>
 
             <p>
                 NEON VLESS MANAGEMENT PANEL
@@ -953,19 +798,13 @@ input::placeholder{
 
         </div>
 
-        <!-- ================= ERROR ================= -->
-
         {% if error %}
 
         <div class="error">
-
             {{ error }}
-
         </div>
 
         {% endif %}
-
-        <!-- ================= LOGIN FORM ================= -->
 
         <form
             method="POST"
@@ -975,11 +814,7 @@ input::placeholder{
             <div class="group">
 
                 <label>
-
                     USERNAME
-
-                    <span class="label-line"></span>
-
                 </label>
 
                 <div class="input-wrap">
@@ -1003,11 +838,7 @@ input::placeholder{
             <div class="group">
 
                 <label>
-
                     PASSWORD
-
-                    <span class="label-line"></span>
-
                 </label>
 
                 <div class="input-wrap">
@@ -1032,21 +863,15 @@ input::placeholder{
                 type="submit"
                 class="btn"
             >
-
                 ACCESS PANEL
-
             </button>
 
         </form>
 
-        <!-- ================= DEFAULT LOGIN ================= -->
-
         <div class="default-info">
 
             <div class="title">
-
                 DEFAULT LOGIN CREDENTIALS
-
             </div>
 
             <div class="value">
@@ -1062,8 +887,6 @@ input::placeholder{
             </div>
 
         </div>
-
-        <!-- ================= FOOTER ================= -->
 
         <div class="footer">
 
