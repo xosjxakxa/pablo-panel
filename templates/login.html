@@ -191,6 +191,59 @@ input::placeholder{
     background:rgba(255,50,90,.08);
 }
 
+/* ================================
+   Default Login Information
+================================ */
+
+.default-login{
+    margin-top:18px;
+    padding:12px 14px;
+    border-radius:14px;
+    border:1px solid rgba(0,234,255,.16);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,234,255,.055),
+            rgba(37,99,255,.035)
+        );
+    box-shadow:
+        0 0 18px rgba(0,234,255,.035),
+        inset 0 0 15px rgba(0,234,255,.018);
+    text-align:center;
+}
+
+.default-login-title{
+    color:#71809b;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:7px;
+}
+
+.default-login-text{
+    color:#9fb0ca;
+    font-size:11px;
+    line-height:1.8;
+}
+
+.default-login strong{
+    color:#00eaff;
+    font-weight:900;
+    text-shadow:0 0 10px rgba(0,234,255,.25);
+}
+
+.default-login .admin-box{
+    display:inline-block;
+    margin-top:3px;
+    padding:2px 8px;
+    border-radius:6px;
+    background:rgba(0,234,255,.07);
+    border:1px solid rgba(0,234,255,.12);
+    color:#00eaff;
+    font-family:monospace;
+    font-weight:900;
+}
+
 .footer{
     margin-top:24px;
     padding-top:17px;
@@ -269,6 +322,21 @@ input::placeholder{
             </button>
 
         </form>
+
+        <!-- Default Login -->
+        <div class="default-login">
+
+            <div class="default-login-title">
+                DEFAULT LOGIN
+            </div>
+
+            <div class="default-login-text">
+                نام کاربری و رمز عبور پیش‌فرض
+                <br>
+                <span class="admin-box">admin</span>
+            </div>
+
+        </div>
 
         <div class="footer">
             DESIGNED & DEVELOPED BY
